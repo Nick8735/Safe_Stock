@@ -18,10 +18,12 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/get_tasks")
-def get_tasks():
-    stock = mongo.db.tasks.find()
+@app.route("/get_stock")
+def get_stock():
+    print("Reached the get_stock route")
+    stock = mongo.db.stock.find()
     return render_template("stock.html", stock=stock)
+
 
 
 if __name__ == "__main__":
