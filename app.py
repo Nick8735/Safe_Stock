@@ -23,6 +23,7 @@ def get_stock():
     print("Reached the get_stock route")
     stock = mongo.db.stock.find()
     return render_template("stock.html", stock=stock)
+  
 
 
 
