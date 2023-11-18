@@ -54,6 +54,7 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    return render_template("login.html")
     username = request.json.get('username')
     password = request.json.get('password')
 
