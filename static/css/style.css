@@ -4,3 +4,22 @@
 .flashes h4 {
     line-height: 2;
 }
+.login {
+    background-image: url('/static/images/login.jpg');
+    background-size: cover;
+    height: 100vh; /* Set the height to fill the entire viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   }
+.card-panel{
+    width: 550px;
+    padding: 25px;
+    margin-right: 250px;
+       
+}
+.grey-background {
+    background-color: #ccc; /* Adjust the color to your desired shade of grey */
+}
+
