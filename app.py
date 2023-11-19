@@ -17,8 +17,10 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-
 @app.route("/")
+def index():
+    return redirect(url_for("login"))
+
 @app.route("/get_stock")
 def get_stock():
     print("Reached the get_stock route")
