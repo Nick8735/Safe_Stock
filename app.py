@@ -54,18 +54,28 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    return render_template("login.html")
-    username = request.json.get('username')
-    password = request.json.get('password')
+    if request.method == "POST":
+        # check if username exists in db
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
 
-    user = User.query.filter_by(username=username).first()
-   
-    if user and check_password_hash(user.password, password):
-        # Valid credentials, return user information or generate a token
-        return jsonify({'message': 'Login successful', 'user_id': user.id}), 200
-    else:
-        # Invalid credentials
-        return jsonify({'message': 'Invalid credentials'}), 401
+        if existing_user:
+            # ensure hashed password matches user input
+            if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+                    session["user"] = request.form.get("username").lower()
+                    flash("Welcome, {}".format(request.form.get("username")))
+            else:
+                # invalid password match
+                flash("Incorrect Username and/or Password")
+                return redirect(url_for("login"))
+
+        else:
+            # username doesn't exist
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
