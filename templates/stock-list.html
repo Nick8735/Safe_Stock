@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <h2>Stock Overview</h2>
+  
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>Stock Name</th>
+        <th>Stock Number</th>
+        <th>Stock UOM</th>
+        <th>Stock Location</th>
+        <th>Stock Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for stock in stock_data %}
+        <tr>
+          <td>{{ stock.stock_name }}</td>
+          <td>{{ stock.stock_number }}</td>
+          <td>{{ stock.stock_uom }}</td>
+          <td>{{ stock.stock_location }}</td>
+          <td>{{ stock.stock_qty }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

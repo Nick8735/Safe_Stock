@@ -5,9 +5,9 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+
 if os.path.exists("env.py"):
     import env
-
 
 app = Flask(__name__)
 app.static_folder = 'static'
@@ -27,7 +27,7 @@ def get_stock():
     print("Reached the get_stock route")
     stock = mongo.db.stock.find()
     return render_template("stock.html", stock=stock)
-  
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -81,7 +81,37 @@ def login():
 
     return render_template("login.html")
 
+@app.route("/stock-overview")
+def stock_overview():
+    print("Reached the stock_overview route")
+    
+    # Retrieve data from MongoDB
+    stock_data = mongo.db.stock.find()
+    
+    # Pass data to template
+    return render_template("stock-list.html", stock_data=stock_data)
+
+@app.route("/receipt", methods=["GET"])
+def receipt():
+    return render_template("receipt.html")
+
+@app.route("/receipt_form", methods=["POST"])
+def receipt_form():
+    # Get data from the form
+    key1_value = request.form.get("key1")
+    key2_value = request.form.get("key2")
+
+    # Create a dictionary representing the document
+    data = {"key1": key1_value, "key2": key2_value}
+
+    # Insert the document into the MongoDB collection
+    result = mongo.db.collection_name.insert_one(data)
+
+    # Check if the insertion was successful
+    if result.acknowledged:
+        return "Document inserted successfully!"
+    else:
+        return "Failed to insert document."
+
 if __name__ == "__main__":
-    app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")),
-            debug=True)
+    app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)
