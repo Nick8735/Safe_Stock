@@ -95,23 +95,24 @@ def stock_overview():
 def receipt():
     return render_template("receipt.html")
 
-@app.route("/receipt_form", methods=["POST"])
+from flask import jsonify
+
+@app.route("/receipt_form", methods=["GET", "POST"])
 def receipt_form():
-    # Get data from the form
-    key1_value = request.form.get("key1")
-    key2_value = request.form.get("key2")
+    if request.method == "POST":
+        receipt = {
+            "stock_name": request.form.get("stock_name"),
+            "stock_number": request.form.get("stock_number"),
+            "stock_uom": request.form.get("stock_uom"),
+            "stock_location": request.form.get("stock_location"),
+            "stock_qty": request.form.get("stock_qty"),
+            "created_by": session["user"]
+        }
+        mongo.db.stock.insert_one(stock)
+        flash("Stock Successfully Added")
+        return redirect(url_for("receipt_form"))
 
-    # Create a dictionary representing the document
-    data = {"key1": key1_value, "key2": key2_value}
-
-    # Insert the document into the MongoDB collection
-    result = mongo.db.collection_name.insert_one(data)
-
-    # Check if the insertion was successful
-    if result.acknowledged:
-        return "Document inserted successfully!"
-    else:
-        return "Failed to insert document."
+    return render_template("receipt.html")
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)

@@ -5,43 +5,45 @@
 <br>
 <br>
 <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Placeholder" id="Stock_Name" type="text" class="validate">
-          <label for="first_name">Stock Name</label>
+    <form class="col s12" method="POST" action="{{ url_for('receipt_form') }}">
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="stock_name" name="stock_name" type="text" class="validate">
+                <label for="stock_name">Stock Name</label>
+            </div>
         </div>
         <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s6">
-                  <input placeholder="Placeholder" id="Stock_Name" type="text" class="validate">
-                  <label for="first_name">Stock Name</label>
-                </div>
-              <div class="row">
-        <div class="input-field col s12">
-          <input id="stock_number" type="number" class="validate">
-          <label for="disabled">Disabled</label>
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="stock_number" name="stock_number" type="text" class="validate">
+                <label for="stock_number">Stock Number</label>
+            </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
-          <label for="password">Password</label>
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="stock_uom" name="stock_uom" type="text" class="validate">
+                <label for="stock_uom">Stock UoM</label>
+            </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="stock_location" name="stock_location" type="text" class="validate">
+                <label for="stock_location">Stock Location</label>
+            </div>
         </div>
-      </div>
-        </form>
-  </div>
-
-
-
-
-
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="stock_qty" name="stock_qty" type="text" class="validate">
+                <label for="stock_qty">Stock Qty</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                    Add Stock <i class="fas fa-plus-square right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
 
 {% endblock %}
