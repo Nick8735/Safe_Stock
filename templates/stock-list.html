@@ -11,6 +11,7 @@
         <th>Stock UOM</th>
         <th>Stock Location</th>
         <th>Stock Quantity</th>
+        <th>User</th>
       </tr>
     </thead>
     <tbody>
@@ -21,6 +22,7 @@
           <td>{{ stock.stock_uom }}</td>
           <td>{{ stock.stock_location }}</td>
           <td>{{ stock.stock_qty }}</td>
+          <td>{{ stock.created_by }}</td>
         </tr>
       {% endfor %}
     </tbody>
