@@ -108,7 +108,7 @@ def receipt_form():
             "stock_qty": request.form.get("stock_qty"),
             "created_by": session["user"]
         }
-        mongo.db.stock.insert_one(stock)
+        mongo.db.stock.insert_one(receipt)
         flash("Stock Successfully Added")
         return redirect(url_for("receipt_form"))
 
