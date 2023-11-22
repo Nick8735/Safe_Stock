@@ -84,18 +84,16 @@ def login():
 @app.route("/stock-overview")
 def stock_overview():
     print("Reached the stock_overview route")
-    
+
     # Retrieve data from MongoDB
     stock_data = mongo.db.stock.find()
-    
+
     # Pass data to template
     return render_template("stock-list.html", stock_data=stock_data)
 
 @app.route("/receipt", methods=["GET"])
 def receipt():
     return render_template("receipt.html")
-
-from flask import jsonify
 
 @app.route("/receipt_form", methods=["GET", "POST"])
 def receipt_form():
@@ -114,5 +112,57 @@ def receipt_form():
 
     return render_template("receipt.html")
 
+@app.route("/issue_stock/<stock_id>", methods=["POST"])
+def delete_stock(stock_id):
+    if request.method == "POST":
+        # Assuming stock_id is the ObjectId of the document you want to delete
+        result = mongo.db.stock.delete_one({"_id": ObjectId(stock_id)})
+
+        if result.deleted_count == 1:
+            flash("Stock Successfully Issued")
+            # Redirect to the "Issue Stock" page with the specific stock_id
+            return redirect(url_for("issue_stock", stock_id=stock_id))
+        else:
+            flash("Stock not found or issue failed")
+
+        return redirect(url_for("issue_stock"))  # Redirect to stock overview if something goes wrong
+    else:
+        # Handle GET requests or other methods as needed
+        return jsonify({"error": "Method not allowed"}), 405
+
+@app.route("/issue_stock/<stock_id>")
+def issue_stock(stock_id):
+    # Retrieve the specific stock data
+    stock_data = mongo.db.stock.find_one({"_id": ObjectId(stock_id)})
+
+    if stock_data:
+        # Render the "Issue Stock" (transaction) page with the specific stock data
+        return render_template("issue_stock.html", stock_data=stock_data)
+    else:
+        # Handle the case where the stock is not found
+        flash("Stock not found")
+        return redirect(url_for("issue_stock"))
+
+@app.route("/issue_stock/<stock_id>/issue_form", methods=["GET", "POST"])
+def issue_form(stock_id):
+    if request.method == "POST":
+        # Process the form submission and update the stock item
+        # You can add code here to update the stock status or perform any other actions
+
+        flash("Stock Successfully Issued")
+        return redirect(url_for("issue_stock", stock_id=stock_id))
+
+    # Retrieve the specific stock data for the form
+    stock_data = mongo.db.stock.find_one({"_id": ObjectId(stock_id)})
+
+    if stock_data:
+        # Render the "Issue Stock" (transaction) form with the specific stock data
+        return render_template("issue_form.html", stock_data=stock_data)
+    else:
+        # Handle the case where the stock is not found
+        flash("Stock not found")
+        return redirect(url_for("stock_overview"))
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)
+
