@@ -132,7 +132,7 @@ def issue_form():
         # Assuming "stock" is the collection in your MongoDB
         mongo.db.stock.delete_one(issue)
         
-        flash("Stock Successfully Deleted")
+        flash("Stock Successfully Issued")
 
         # Redirect to a different route after successful deletion
         return redirect(url_for("stock_overview"))  # Change "stock_overview" to the appropriate route
