@@ -8,6 +8,12 @@
     <form class="col s12" method="POST" action="{{ url_for('issue_form') }}">
         <div class="row">
             <div class="input-field col s6">
+                <input placeholder="Placeholder" id="stock_purchase_order" name="stock_purchase_order" type="text" class="validate">
+                <label for="stock_purchase_order">Stock Purchase Order</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
                 <input placeholder="Placeholder" id="stock_name" name="stock_name" type="text" class="validate">
                 <label for="stock_name">Stock Name</label>
             </div>

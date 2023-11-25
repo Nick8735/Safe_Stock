@@ -99,6 +99,7 @@ def receipt():
 def receipt_form():
     if request.method == "POST":
         receipt = {
+            "stock_purchase_order": request.form.get("stock_purchase_order"),
             "stock_name": request.form.get("stock_name"),
             "stock_number": request.form.get("stock_number"),
             "stock_uom": request.form.get("stock_uom"),
@@ -121,6 +122,7 @@ def issue():
 def issue_form():
     if request.method == "POST":
         issue = {
+            "stock_purchase_order": request.form.get("stock_purchase_order"),
             "stock_name": request.form.get("stock_name"),
             "stock_number": request.form.get("stock_number"),
             "stock_uom": request.form.get("stock_uom"),

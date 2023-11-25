@@ -6,6 +6,7 @@
   <table class="striped">
     <thead>
       <tr>
+        <th>Stock Purchase Order</th>
         <th>Stock Name</th>
         <th>Stock Number</th>
         <th>Stock UOM</th>
@@ -17,6 +18,7 @@
     <tbody>
       {% for stock in stock_data %}
         <tr>
+          <td>{{ stock.stock_purchase_order }}</td>
           <td>{{ stock.stock_name }}</td>
           <td>{{ stock.stock_number }}</td>
           <td>{{ stock.stock_uom }}</td>
