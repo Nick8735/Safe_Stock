@@ -1,4 +1,6 @@
 import os
+import pandas as pd  # Add this line
+import plotly.express as px
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -141,6 +143,31 @@ def issue_form():
 
     return render_template("issue.html")
 
+@app.route('/dashboard')
+def dashboard():
+    # Retrieve data from MongoDB
+    stock_data = mongo.db.stock.find()
+
+    # Convert MongoDB cursor to a DataFrame
+    df = pd.DataFrame(list(stock_data))
+
+    # Verify the actual column names in your DataFrame
+    print(df.columns)
+
+    # Create a bar chart using Plotly
+    bar_column_name_x = 'stock_name'  # Replace with the correct column name
+    bar_column_name_y = 'stock_qty'   # Replace with the correct column name
+    bar_fig = px.bar(df, x=bar_column_name_x, y=bar_column_name_y, title='Stock Quantity by Name')
+
+    # Create a pie chart
+    pie_column_name = 'created_by'  # Replace with the correct column name
+    pie_fig = px.pie(df, names=pie_column_name, title='Users')
+
+    # Convert the Plotly figures to HTML
+    bar_chart_html = bar_fig.to_html(full_html=False)
+    pie_chart_html = pie_fig.to_html(full_html=False)
+
+    return render_template('dashboard.html', bar_chart_html=bar_chart_html, pie_chart_html=pie_chart_html)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)

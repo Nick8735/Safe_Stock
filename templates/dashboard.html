@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body_class %}dashboard{% endblock %}
+
+{% block content %}
+    <h1>Stock Dashboard</h1>
+
+    <!-- Display the bar chart HTML -->
+    {{ bar_chart_html|safe }}
+
+    <!-- Display the pie chart HTML -->
+    {{ pie_chart_html|safe }}
+
+    <!-- Add any other content or styling as needed -->
+{% endblock %}
