@@ -162,6 +162,8 @@ def dashboard():
     # Create a pie chart
     pie_column_name = 'created_by'  # Replace with the correct column name
     pie_fig = px.pie(df, names=pie_column_name, title='Users')
+    pie_fig.update_traces(marker=dict(colors=['yellow']))  # Update the color of the pie chart
+
 
     # Convert the Plotly figures to HTML
     bar_chart_html = bar_fig.to_html(full_html=False)

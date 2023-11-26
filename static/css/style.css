@@ -22,4 +22,6 @@
 .grey-background {
     background-color: #ccc; /* Adjust the color to your desired shade of grey */
 }
-
+html {
+    background-color: #ccc;
+}
