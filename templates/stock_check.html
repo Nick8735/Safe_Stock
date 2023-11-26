@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>List of Stocks</h2> 
+    <table>
+        <thead>
+            <tr>
+                <th>Stock Name</th>
+                <th>Stock Quantity</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+                <tr>
+                    <td>{{ stock.stock_name }}</td>
+                    <td>{{ stock.stock_qty }}</td>
+                    <td>
+                        <form method="POST" action="{{ url_for('stock_check_edit', stock_id=stock['_id']) }}">
+                            <button type="submit">Edit</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

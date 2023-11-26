@@ -171,6 +171,45 @@ def dashboard():
 
     return render_template('dashboard.html', bar_chart_html=bar_chart_html, pie_chart_html=pie_chart_html)
 
+# ... (your existing code)
+
+@app.route("/stock_check", methods=["GET"])
+def stock_check():
+    # If it's a GET request, retrieve the list of stocks and render the view template
+    stocks = list(mongo.db.stock.find())  # Convert MongoDB cursor to a list
+    return render_template("stock_check_view.html", stocks=stocks)
+
+@app.route("/stock_check/<stock_id>", methods=["GET"])
+def stock_check_detail(stock_id):
+    # If it's a GET request, retrieve the stock information and render the detail view template
+    stock = mongo.db.stock.find_one({"_id": ObjectId(stock_id)})
+    return render_template("stock_check_detail.html", stock=stock)
+
+@app.route("/stock_check/<stock_id>/edit", methods=["GET", "POST"])
+def stock_check_edit(stock_id):
+    if request.method == "POST":
+        # Get the updated stock information from the form
+        updated_stock = {
+            "stock_purchase_order": request.form.get("stock_purchase_order"),
+            "stock_name": request.form.get("stock_name"),
+            "stock_number": request.form.get("stock_number"),
+            "stock_uom": request.form.get("stock_uom"),
+            "stock_location": request.form.get("stock_location"),
+            "stock_qty": request.form.get("stock_qty"),
+            "created_by": session["user"]
+        }
+
+        # Update the stock in the MongoDB collection
+        mongo.db.stock.update_one({"_id": ObjectId(stock_id)}, {"$set": updated_stock})
+
+        flash("Stock Successfully Updated")
+        return redirect(url_for("stock_check_detail", stock_id=stock_id))
+
+    # If it's a GET request, retrieve the stock information and render the edit form template
+    stock = mongo.db.stock.find_one({"_id": ObjectId(stock_id)})
+    return render_template("stock_check_edit.html", stock=stock)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)
 
