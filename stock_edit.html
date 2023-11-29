@@ -1,0 +1,18 @@
+<!-- stock_edit.html -->
+
+{% extends "base.html" %}
+{% block content %}
+
+  <h2>Edit Stock</h2>
+  
+  <form method="POST" action="{{ url_for('stock_check_edit', stock_id=stock['_id']) }}">
+    <!-- Your form fields go here -->
+    <label for="edit_stock_name">Stock Name:</label>
+    <input type="text" id="edit_stock_name" name="stock_name" value="{{ stock.stock_name }}" required>
+    
+    <!-- Add similar input fields for other stock properties -->
+
+    <button type="submit" class="btn waves-effect waves-light">Save Changes</button>
+  </form>
+
+{% endblock %}

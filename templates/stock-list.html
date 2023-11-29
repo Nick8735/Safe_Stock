@@ -27,22 +27,47 @@
           <td>{{ stock.stock_qty }}</td>
           <td>{{ stock.created_by }}</td>
           <td>
-            <a href="#" data-toggle="modal" data-target="#editModal{{ stock['_id'] }}">Edit</a>
-            <!-- Modal -->
-            <div class="modal fade" id="editModal{{ stock['_id'] }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit Stock</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
+            <a class="waves-effect waves-light btn modal-trigger" href="#editModal{{ stock['_id'] }}">Edit</a>
+
+            <!-- Modal Structure -->
+            <div id="editModal{{ stock['_id'] }}" class="modal">
+              <div class="modal-content">
+                <form method="POST" action="{{ url_for('stock_check_edit', stock_id=stock['_id']) }}">
+                  <div class="input-field">
+                    <label for="edit_stock_purchase_order">Stock Purchase Order:</label>
+                    <input type="text" id="edit_stock_purchase_order" name="stock_purchase_order" value="{{ stock.stock_purchase_order }}" required>
                   </div>
-                  <div class="modal-body">
-                    <!-- Your form for editing goes here -->
-                    <!-- You can use the same form you use in stock_check_edit.html -->
+                  
+                  <!-- Add similar input fields for other stock properties -->
+
+                  <div class="input-field">
+                    <label for="edit_stock_name">Stock Name:</label>
+                    <input type="text" id="edit_stock_name" name="stock_name" value="{{ stock.stock_name }}" required>
                   </div>
-                </div>
+                  <div class="input-field">
+                    <label for="edit_stock_number">Stock Number:</label>
+                    <input type="text" id="edit_stock_number" name="stock_number" value="{{ stock.stock_number }}" required>
+                  </div>
+                  <div class="input-field">
+                    <label for="edit_stock_uom">Stock UoM:</label>
+                    <input type="text" id="edit_stock_uom" name="stock_uom" value="{{ stock.stock_uom }}" required>
+                  </div>
+                  <div class="input-field">
+                    <label for="edit_stock_location">Stock Location:</label>
+                    <input type="text" id="edit_stock_location" name="stock_location" value="{{ stock.stock_location }}" required>
+                  </div>
+                  <div class="input-field">
+                    <label for="edit_stock_qty">Stock Quantity:</label>
+                    <input type="text" id="edit_stock_qty" name="stock_qty" value="{{ stock.stock_qty }}" required>
+                  </div>
+
+                  <!-- Add more input fields as needed -->
+
+                  <button type="submit" class="btn waves-effect waves-light">Save Changes</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
               </div>
             </div>
           </td>
@@ -52,12 +77,3 @@
   </table>
 
 {% endblock %}
-
-
-
-
-
-
-
-
-

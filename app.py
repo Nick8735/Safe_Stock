@@ -93,6 +93,14 @@ def stock_overview():
     # Pass data to template
     return render_template("stock-list.html", stock_data=stock_data)
 
+@app.route("/stock_check/<stock_id>/edit", methods=["GET"])
+def stock_check_edit_page(stock_id):
+    # Retrieve the stock information
+    stock = mongo.db.stock.find_one({"_id": ObjectId(stock_id)})
+
+    # Render the edit page with the stock data
+    return render_template("stock_edit.html", stock=stock)
+
 @app.route("/receipt", methods=["GET"])
 def receipt():
     return render_template("receipt.html")
@@ -185,7 +193,9 @@ def stock_check_detail(stock_id):
     stock = mongo.db.stock.find_one({"_id": ObjectId(stock_id)})
     return render_template("stock_check_detail.html", stock=stock)
 
-@app.route("/stock_check/<stock_id>/edit", methods=["GET", "POST"])
+# ... (existing code)
+
+@app.route("/stock_check/<stock_id>/edit", methods=["POST"])
 def stock_check_edit(stock_id):
     if request.method == "POST":
         # Get the updated stock information from the form
@@ -203,12 +213,9 @@ def stock_check_edit(stock_id):
         mongo.db.stock.update_one({"_id": ObjectId(stock_id)}, {"$set": updated_stock})
 
         flash("Stock Successfully Updated")
-        return redirect(url_for("stock_check_detail", stock_id=stock_id))
 
-    # If it's a GET request, retrieve the stock information and render the edit form template
-    stock = mongo.db.stock.find_one({"_id": ObjectId(stock_id)})
-    return render_template("stock_check_edit.html", stock=stock)
-
+        # Redirect back to the overview page
+        return redirect(url_for("stock_overview"))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)
