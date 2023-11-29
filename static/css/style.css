@@ -25,3 +25,17 @@
 html {
     background-color: #ccc;
 }
+.overview-image{
+    height: auto;
+    width: 500px;
+    margin: 10px;
+}
+.card-title{
+    text-align: center;
+}
+.card-action{
+    text-align: center;
+    }
+h2{
+    text-align: center;
+}
