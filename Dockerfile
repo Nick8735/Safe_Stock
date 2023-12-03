@@ -3,7 +3,8 @@ FROM ubuntu:22.04
 ENV PYTHON_VERSION 3.9.17
 ENV NODE_MAJOR 16
 ENV DEBIAN_FRONTEND=noninteractive
-#Set of all dependencies needed for pyenv to work on Ubuntu
+
+# Set of all dependencies needed for pyenv to work on Ubuntu
 RUN apt-get update \ 
     && apt-get install -y --no-install-recommends make build-essential libssl-dev libpq-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget ca-certificates curl gnupg llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev mecab-ipadic-utf8 git postgresql-client telnet unzip zlib1g-dev
 
@@ -30,7 +31,7 @@ RUN set -ex \
     && pyenv global $PYTHON_VERSION \
     && pyenv rehash \
     && python3 -m pip install --no-cache-dir --upgrade pip \
-    && python3 -m pip install --no-cache-dir --upgrade setuptools wheel virtualenv pipenv pylint rope flake8  mypy autopep8 pep8 pylama pydocstyle bandit notebook twine
+    && python3 -m pip install --no-cache-dir --upgrade setuptools wheel virtualenv pipenv pylint rope flake8 mypy autopep8 pep8 pylama pydocstyle bandit notebook twine
 
 ENV PATH=$PATH:"/home/codeany/.local/bin"
 
@@ -39,18 +40,29 @@ RUN echo 'alias python=python3' >> ~/.bashrc && \
     echo 'alias pip=pip3' >> ~/.bashrc && \
     echo 'alias psql="psql mydb"' >>  ~/.bashrc
 
-COPY ./build-assets/heroku_config.sh /home/$USERNAME/.theia/heroku_config.sh
+COPY build-assets/heroku_config.sh /home/$USERNAME/.theia/heroku_config.sh
 RUN echo 'alias heroku_config=". $HOME/.theia/heroku_config.sh"' >> ~/.bashrc
 
-COPY ./build-assets/make_url.py /home/$USERNAME/.theia/make_url.py
+COPY build-assets/make_url.py /home/$USERNAME/.theia/make_url.py
 RUN echo 'alias make_url="python3 $HOME/.theia/make_url.py "' >> ~/.bashrc
 
-COPY ./build-assets/http_server.py /home/$USERNAME/.theia/http_server.py
+COPY build-assets/http_server.py /home/$USERNAME/.theia/http_server.py
 RUN echo 'alias http_server="python3 $HOME/.theia/http_server.py "' >> ~/.bashrc
 
-
 USER root
-RUN chown -R $USERNAME:$USERNAME /home/$USERNAME/.theia
+
+# Install MongoDB client tools
+RUN apt-get update && \
+    apt-get install -y gnupg && \
+    curl -fsSL https://www.mongodb.org/static/pgp/server-4.4.asc | gpg --dearmor -o /usr/share/keyrings/mongodb-archive-keyring.gpg && \
+    echo "deb [signed-by=/usr/share/keyrings/mongodb-archive-keyring.gpg] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.4.list && \
+    apt-get update && \
+    apt-get install -y mongodb-org-tools
+
+# Change ownership for the installed tools
+RUN chown -R $USERNAME:$USERNAME /usr/bin/mongo*
+
+USER $USERNAME
 
 CMD ["tail", "-f", "/dev/null"]
 

@@ -202,5 +202,76 @@ def stock_count():
 
     return render_template("stock_count.html")
 
+def get_low_stock_items(threshold_quantity):
+    # MongoDB Query: Retrieve items with quantity less than the threshold
+    query = {"stock_qty": {"$lt": threshold_quantity}}
+    low_stock_items_cursor = mongo.db.stock.find(query)
+    
+    # Convert the cursor to a list of dictionaries
+    low_stock_items = list(low_stock_items_cursor)
+
+    print("Threshold Quantity:", threshold_quantity)
+    print("MongoDB Query:", query)
+    print("Low Stock Items Count:", len(low_stock_items))
+    print("Low Stock Items:", low_stock_items)  # Add this line for debugging
+
+    return low_stock_items
+
+
+def generate_stock_report_html(low_stock_items):
+    # Your HTML content generation logic
+    html_content = """
+    <html>
+    <head>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Low Stock Report</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+            </tr>
+    """
+
+    for item in low_stock_items:
+        html_content += f"""
+            <tr>
+                <td>{item['stock_name']}</td>
+                <td>{item['stock_qty']}</td>
+            </tr>
+        """
+
+    html_content += """
+        </table>
+    </body>
+    </html>
+    """
+    return html_content
+
+@app.route("/low_stock")
+def low_stock_report():
+    # Set your threshold quantity
+    threshold_quantity = 2
+
+    # Get low-stock items from MongoDB
+    low_stock_items = get_low_stock_items(threshold_quantity)
+
+    # Generate the HTML report
+    html_content = generate_stock_report_html(low_stock_items)
+
+    # Render the low_stock.html template and pass the HTML content
+    return render_template("low_stock.html", html_content=html_content)
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)
