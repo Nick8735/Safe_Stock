@@ -1,0 +1,47 @@
+<!-- stock_count.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h3>Stock Count</h3>
+    <form method="POST" action="{{ url_for('stock_count') }}">
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="stock_purchase_order" name="stock_purchase_order" type="text" class="validate">
+                <label for="stock_purchase_order">Stock Purchase Order</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="stock_name" name="stock_name" type="text" class="validate">
+                <label for="stock_name">Stock Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="stock_number" name="stock_number" type="text" class="validate">
+                <label for="stock_number">Stock Number</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="stock_uom" name="stock_uom" type="text" class="validate">
+                <label for="stock_uom">Stock UoM</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="stock_location" name="stock_location" type="text" class="validate">
+                <label for="stock_location">Stock Location</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="stock_qty" name="stock_qty" type="text" class="validate">
+                <label for="stock_qty">Stock Qty</label>
+            </div>
+        </div>
+        <!-- Add any additional fields from stock_overview template here -->
+
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
