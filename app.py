@@ -262,7 +262,7 @@ def generate_stock_report_html(low_stock_items):
 @app.route("/low_stock")
 def low_stock_report():
     # Set your threshold quantity
-    threshold_quantity = 2
+    threshold_quantity = 6
 
     # Get low-stock items from MongoDB
     low_stock_items = get_low_stock_items(threshold_quantity)

@@ -39,6 +39,8 @@ html {
 h2{
     text-align: center;
 }
-.flashes h4.error {
-    color: red;
+.stock-image{
+    width: 500px;
+    height: 375px;
+    margin: 10px;
 }
