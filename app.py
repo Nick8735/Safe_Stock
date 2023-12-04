@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+from bson import Int64 
 import plotly.express as px
 from flask import jsonify, Flask, flash, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo
@@ -85,15 +86,23 @@ def receipt():
 @app.route("/receipt_form", methods=["GET", "POST"])
 def receipt_form():
     if request.method == "POST":
+        try:
+            stock_qty = Int64(request.form.get("stock_qty"))
+        except ValueError:
+                
+                flash("Invalid quantity. Please enter a valid integer.")
+                return redirect(url_for("receipt_form"))
+
         receipt = {
             "stock_purchase_order": request.form.get("stock_purchase_order"),
             "stock_name": request.form.get("stock_name"),
             "stock_number": request.form.get("stock_number"),
             "stock_uom": request.form.get("stock_uom"),
             "stock_location": request.form.get("stock_location"),
-            "stock_qty": request.form.get("stock_qty"),
+            "stock_qty": stock_qty,
             "created_by": session["user"]
         }
+
         mongo.db.stock.insert_one(receipt)
         flash("Stock Successfully Added")
         return redirect(url_for("receipt_form"))
