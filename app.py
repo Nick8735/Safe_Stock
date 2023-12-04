@@ -236,11 +236,18 @@ def generate_stock_report_html(low_stock_items):
             table {
                 border-collapse: collapse;
                 width: 100%;
+                background-color: white;
             }
             th, td {
                 border: 1px solid black;
                 padding: 8px;
                 text-align: left;
+            }
+            h2{
+                font-style: oblique;
+                text-decoration: underline;
+                color: white;
+                margin: 50px; 
             }
         </style>
     </head>

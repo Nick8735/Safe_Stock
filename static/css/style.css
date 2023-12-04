@@ -23,7 +23,7 @@
     background-color: #ccc; /* Adjust the color to your desired shade of grey */
 }
 html {
-    background-color: #ccc;
+    background-color: #023059;
 }
 .overview-image{
     height: auto;
@@ -43,4 +43,32 @@ h2{
     width: 500px;
     height: 375px;
     margin: 10px;
+}
+.button_stock{
+ margin: 5px;
+}
+.button_stock a {
+    text-align: center;
+    display: block; 
+    width: 100%;
+  }
+  .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
+    color: black;
+    
+  }
+  .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover{
+    color: red;
+  }
+.title_1, .title_2, .title_3, .title_4, .title_5{
+    font-style: oblique;
+   text-decoration: underline;
+   color: white;
+   margin: 50px;
+}
+.striped{
+    background-color: white;
+}
+form{
+    background-color: white;
+      
 }
