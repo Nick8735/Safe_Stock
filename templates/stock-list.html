@@ -29,7 +29,7 @@
           <td>
             <a class="waves-effect waves-light btn modal-trigger" href="#editModal{{ stock['_id'] }}">Edit</a>
 
-            <!-- Modal Structure -->
+          
             <div id="editModal{{ stock['_id'] }}" class="modal">
               <div class="modal-content">
                 <form method="POST" action="{{ url_for('stock_check_edit', stock_id=stock['_id']) }}">
@@ -38,9 +38,7 @@
                     <input type="text" id="edit_stock_purchase_order" name="stock_purchase_order" value="{{ stock.stock_purchase_order }}" required>
                   </div>
                   
-                  <!-- Add similar input fields for other stock properties -->
-
-                  <div class="input-field">
+                    <div class="input-field">
                     <label for="edit_stock_name">Stock Name:</label>
                     <input type="text" id="edit_stock_name" name="stock_name" value="{{ stock.stock_name }}" required>
                   </div>
@@ -61,9 +59,7 @@
                     <input type="text" id="edit_stock_qty" name="stock_qty" value="{{ stock.stock_qty }}" required>
                   </div>
 
-                  <!-- Add more input fields as needed -->
-
-                  <button type="submit" class="btn waves-effect waves-light">Save Changes</button>
+                 <button type="submit" class="btn waves-effect waves-light">Save Changes</button>
                 </form>
               </div>
               <div class="modal-footer">

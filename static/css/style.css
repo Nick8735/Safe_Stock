@@ -20,7 +20,7 @@
        
 }
 .grey-background {
-    background-color: #ccc; /* Adjust the color to your desired shade of grey */
+    background-color: #ccc; 
 }
 html {
     background-color: #023059;
@@ -46,6 +46,7 @@ h2{
 }
 .button_stock{
  margin: 5px;
+ border: solid black 1px;
 }
 .button_stock a {
     text-align: center;
@@ -59,7 +60,7 @@ h2{
   .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover{
     color: red;
   }
-.title_1, .title_2, .title_3, .title_4, .title_5{
+.title_1, .title_2, .title_3, .title_4, .title_5, .title_6{
     font-style: oblique;
    text-decoration: underline;
    color: white;
@@ -70,5 +71,8 @@ h2{
 }
 form{
     background-color: white;
-      
+         
+}
+.nav-wrapper{
+    background-color:#546e7a;
 }

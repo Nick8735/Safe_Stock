@@ -249,6 +249,9 @@ def generate_stock_report_html(low_stock_items):
                 color: white;
                 margin: 50px; 
             }
+            th{
+                background-color: #ccc;
+            }
         </style>
     </head>
     <body>
@@ -289,5 +292,12 @@ def low_stock_report():
     # Render the low_stock.html template and pass the HTML content
     return render_template("low_stock.html", html_content=html_content)
 
+@app.route("/logout")
+def logout():
+    session.pop("user", None)
+    flash("You have been logged out", "info")
+    return redirect(url_for("login"))
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)
+

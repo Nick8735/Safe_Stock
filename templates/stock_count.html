@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h3>Stock Count</h3>
+    <h2 class="title_6">Stock Count</h2>
     <form method="POST" action="{{ url_for('stock_count') }}">
         <div class="row">
             <div class="input-field col s6">
@@ -40,8 +40,11 @@
                 <label for="stock_qty">Stock Qty</label>
             </div>
         </div>
-        <!-- Add any additional fields from stock_overview template here -->
-
-        <button type="submit">Submit</button>
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                    Check Stock <i class="fas fa-plus-square right"></i>
+                </button>
+            </div>
     </form>
 {% endblock %}
