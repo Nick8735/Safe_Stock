@@ -89,3 +89,11 @@ img{
     background-color: #546e7a;
     padding: 20px; /* Optional: Add some padding to the form container */
 }
+.register {
+    background-image: url('/static/images/login.jpg');
+    background-size: cover;
+    height: 100vh; /* Set the height to fill the entire viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;}
