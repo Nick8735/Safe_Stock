@@ -77,7 +77,15 @@ h2{
 img{
     border: black solid 2px;
 }
-.issue{
-    background-color: white;
-    
+.issue {
+    background-color: #546e7a;
+    padding: 20px; /* Optional: Add some padding to the form container */
+}
+.receipt {
+    background-color: #546e7a;
+    padding: 20px; /* Optional: Add some padding to the form container */
+}
+.count {
+    background-color: #546e7a;
+    padding: 20px; /* Optional: Add some padding to the form container */
 }

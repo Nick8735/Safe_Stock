@@ -4,6 +4,7 @@
 {% block content %}
     <h2 class="title_6">Stock Count</h2>
     <form method="POST" action="{{ url_for('stock_count') }}">
+      <div class="count">
         <div class="row">
             <div class="input-field col s6">
                 <input placeholder="Placeholder" id="stock_purchase_order" name="stock_purchase_order" type="text" class="validate">
@@ -45,6 +46,7 @@
                 <button type="submit" class="btn-large light-blue darken-1 text-shadow">
                     Check Stock <i class="fas fa-plus-square right"></i>
                 </button>
+            </div>
             </div>
     </form>
 {% endblock %}
