@@ -87,7 +87,7 @@ def receipt():
 def receipt_form():
     if request.method == "POST":
         try:
-            stock_qty = Int64(request.form.get("stock_qty"))
+            stock_qty = int(request.form.get("stock_qty"))
         except ValueError:
                 
                 flash("Invalid quantity. Please enter a valid integer.")
@@ -162,20 +162,25 @@ def stock_check_detail(stock_id):
 @app.route("/stock_check/<stock_id>/edit", methods=["POST"])
 def stock_check_edit(stock_id):
     if request.method == "POST":
-        updated_stock = {
-            "stock_purchase_order": request.form.get("stock_purchase_order"),
-            "stock_name": request.form.get("stock_name"),
-            "stock_number": request.form.get("stock_number"),
-            "stock_uom": request.form.get("stock_uom"),
-            "stock_location": request.form.get("stock_location"),
-            "stock_qty": request.form.get("stock_qty"),
-            "created_by": session["user"]
-        }
+        try:
+            updated_stock = {
+                "stock_purchase_order": request.form.get("stock_purchase_order"),
+                "stock_name": request.form.get("stock_name"),
+                "stock_number": request.form.get("stock_number"),
+                "stock_uom": request.form.get("stock_uom"),
+                "stock_location": request.form.get("stock_location"),
+                "stock_qty": int(request.form.get("stock_qty")),  # Convert to integer
+                "created_by": session["user"]
+            }
+        except ValueError:
+            flash("Invalid quantity. Please enter a valid integer.")
+            return redirect(url_for("stock_overview"))
 
         mongo.db.stock.update_one({"_id": ObjectId(stock_id)}, {"$set": updated_stock})
 
         flash("Stock Successfully Updated")
         return redirect(url_for("stock_overview"))
+
 
 @app.route("/stock_count", methods=["GET", "POST"])
 def stock_count():
