@@ -2,74 +2,102 @@
 {% block content %}
 
   <h2 class="title_2">Stock Overview</h2>
-  
-  <table class="striped">
-    <thead>
-      <tr>
-        <th>Stock Purchase Order</th>
-        <th>Stock Name</th>
-        <th>Stock Number</th>
-        <th>Stock UOM</th>
-        <th>Stock Location</th>
-        <th>Stock Quantity</th>
-        <th>User</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for stock in stock_data %}
+
+  <div class="row card-panel grey lighten-5">
+    <form action="{{ url_for('search') }}" method="post" class="col s12">
+      <div class="row valign-wrapper center-align">
+        <div class="input-field col s12 m8">
+          <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
+          <input type="text" name="query" id="query" minlength="3" class="validate" required>
+          <label for="query">Search Stock</label>
+        </div>
+        <div class="col s12 m4">
+          <a href="{{ url_for('get_stock') }}" class="red btn text-shadow">Reset</a>
+          <button type="submit" class="light-blue darken-1 btn text-shadow">
+            <i class="fas fa-search left"></i> Search
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  {% if search_results %}
+    <h3>Search Results</h3>
+    <table class="striped">
+      <thead>
+        <!-- Table header columns -->
         <tr>
-          <td>{{ stock.stock_purchase_order }}</td>
-          <td>{{ stock.stock_name }}</td>
-          <td>{{ stock.stock_number }}</td>
-          <td>{{ stock.stock_uom }}</td>
-          <td>{{ stock.stock_location }}</td>
-          <td>{{ stock.stock_qty }}</td>
-          <td>{{ stock.created_by }}</td>
-          <td>
-            <a class="waves-effect waves-light btn modal-trigger" href="#editModal{{ stock['_id'] }}">Edit</a>
-
-          
-            <div id="editModal{{ stock['_id'] }}" class="modal">
-              <div class="modal-content">
-                <form method="POST" action="{{ url_for('stock_check_edit', stock_id=stock['_id']) }}">
-                  <div class="input-field">
-                    <label for="edit_stock_purchase_order">Stock Purchase Order:</label>
-                    <input type="text" id="edit_stock_purchase_order" name="stock_purchase_order" value="{{ stock.stock_purchase_order }}" required>
-                  </div>
-                  
-                    <div class="input-field">
-                    <label for="edit_stock_name">Stock Name:</label>
-                    <input type="text" id="edit_stock_name" name="stock_name" value="{{ stock.stock_name }}" required>
-                  </div>
-                  <div class="input-field">
-                    <label for="edit_stock_number">Stock Number:</label>
-                    <input type="text" id="edit_stock_number" name="stock_number" value="{{ stock.stock_number }}" required>
-                  </div>
-                  <div class="input-field">
-                    <label for="edit_stock_uom">Stock UoM:</label>
-                    <input type="text" id="edit_stock_uom" name="stock_uom" value="{{ stock.stock_uom }}" required>
-                  </div>
-                  <div class="input-field">
-                    <label for="edit_stock_location">Stock Location:</label>
-                    <input type="text" id="edit_stock_location" name="stock_location" value="{{ stock.stock_location }}" required>
-                  </div>
-                  <div class="input-field">
-                    <label for="edit_stock_qty">Stock Quantity:</label>
-                    <input type="text" id="edit_stock_qty" name="stock_qty" value="{{ stock.stock_qty }}" required>
-                  </div>
-
-                 <button type="submit" class="btn waves-effect waves-light">Save Changes</button>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-              </div>
-            </div>
-          </td>
+          <th>Stock Purchase Order</th>
+          <th>Stock Name</th>
+          <th>Stock Number</th>
+          <th>Stock UOM</th>
+          <th>Stock Location</th>
+          <th>Stock Quantity</th>
+          <th>User</th>
+          <th>Actions</th>
         </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {% for stock in search_results %}
+          <tr>
+            <!-- Display stock information -->
+            <td>{{ stock.stock_purchase_order }}</td>
+            <!-- Other table cells -->
+            <td>{{ stock.stock_name }}</td>
+            <td>{{ stock.stock_number }}</td>
+            <td>{{ stock.stock_uom }}</td>
+            <td>{{ stock.stock_location }}</td>
+            <td>{{ stock.stock_qty }}</td>
+            <td>{{ stock.created_by }}</td>
+            <td>
+              <a class="waves-effect waves-light btn modal-trigger" href="#editModal{{ stock['_id'] }}">Edit</a>
+
+              <div id="editModal{{ stock['_id'] }}" class="modal">
+                <!-- Modal content and form -->
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <table class="striped">
+      <thead>
+        <!-- Table header columns -->
+        <tr>
+          <th>Stock Purchase Order</th>
+          <th>Stock Name</th>
+          <th>Stock Number</th>
+          <th>Stock UOM</th>
+          <th>Stock Location</th>
+          <th>Stock Quantity</th>
+          <th>User</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for stock in stock_data %}
+          <tr>
+            <!-- Display stock information -->
+            <td>{{ stock.stock_purchase_order }}</td>
+            <!-- Other table cells -->
+            <td>{{ stock.stock_name }}</td>
+            <td>{{ stock.stock_number }}</td>
+            <td>{{ stock.stock_uom }}</td>
+            <td>{{ stock.stock_location }}</td>
+            <td>{{ stock.stock_qty }}</td>
+            <td>{{ stock.created_by }}</td>
+            <td>
+              <a class="waves-effect waves-light btn modal-trigger" href="#editModal{{ stock['_id'] }}">Edit</a>
+
+              <div id="editModal{{ stock['_id'] }}" class="modal">
+                <!-- Modal content and form -->
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
 
 {% endblock %}
