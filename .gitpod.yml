@@ -4,8 +4,14 @@
 
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
 
+# .gitpod.yml
+# .gitpod.yml
+# .gitpod.yml
 tasks:
   - init: pip install -r requirements.txt
     command: python app.py
+  - name: Validate Dockerfile
+    command: docker build -t my-image -f .devcontainer/Dockerfile
 
-
+image:
+  file: .devcontainer/Dockerfile
