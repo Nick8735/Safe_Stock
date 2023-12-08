@@ -105,6 +105,13 @@ img{
         margin: 0 auto;
     }
    
+.sidenav{
+    background-color: #546e7a;
+   }
+
+   .sidenav li>a{
+    color: white;
+   }
 
 /* Mobile styles */
 .overview-image, .stock-image {
