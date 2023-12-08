@@ -33,9 +33,9 @@ def search():
     if request.method == "POST":
         query = request.form.get("query")
         print(f"Search Query: {query}")  # Add this line for debugging
-        stock = list(mongo.db.stock.find({"$text": {"$search": query}}))
-        print(f"Search Results: {stock}")  # Add this line for debugging
-        return render_template("stock-list.html", stock=stock)
+        search_results = list(mongo.db.stock.find({"$text": {"$search": query}}))
+        print(f"Search Results: {search_results}")  # Add this line for debugging
+        return render_template("stock-list.html", search_results=search_results)
 
     return render_template("stock-list.html")
 
