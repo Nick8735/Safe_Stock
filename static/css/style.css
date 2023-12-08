@@ -97,3 +97,30 @@ img{
     flex-direction: column;
     justify-content: center;
     align-items: center;}
+
+    .overview-image, .stock-image {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+   
+
+/* Mobile styles */
+.overview-image, .stock-image {
+
+}
+
+
+@media only screen and (min-width: 768px) {
+    .overview-image, .stock-image {
+        /* Tablet styles here */
+    }
+}
+
+
+@media only screen and (min-width: 1200px) {
+    .overview-image, .stock-image {
+       
+    }
+}
