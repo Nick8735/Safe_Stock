@@ -82,34 +82,36 @@ Frequent Visitor
 
 1. All images were selected from [Shutterstock](https://www.shutterstock.com). I looked for perfossional setting images with the hero image linking to learning.
 
-### Project design plan
+# Project design plan
 <br>
 
-<img src="asset/css/script/images/plan-1.png" alt="home-page" style="width:450px;"/>
+## Login 
 
-1. Design of the home page was entice the user to want to know more, snippits of imformation that set the mission of the site regarding a simple and effective training site. The option of training demos are also made available on the home page.
+1. Login page stayed to similar design, this is simplistic and clear for user to complete goal..
 
-<img src="asset/css/script/images/plan-2.png" alt="page-2" style="width:450px;"/>
+<img src="static/images/wf_login.png" alt="page-2" style="width:450px;"/><img src="static/images/login.png" alt="page-2" style="width:450px;"/>
 
-1. Page 2 was designed to allow the user to add details which would give the certificate a unique feel with the users details being present. This is something that would be added with a back end. 
+<img src="static/images/register.png" alt="page-2" style="width:450px;"/>
 
-<img src="asset/css/script/images/page-3.png" alt="page-3" style="width:450px;"/>
+2. Home screen remained similar to original design however. the live version has more transactions than originally planned due to ensuring that C.R.U.D could be clearly shown throughout the system. 
 
-1. Page 3 is the procedure page where the user will conduct thier learning prior to to being tested.
+<img src="static/images/wf_home.png" alt="page-2" style="width:450px;"/> <img src="static/images/home.png" alt="page-2" style="width:450px;"/>
 
-<img src="asset/css/script/images/page-4.png" alt="page-4" style="width:450px;"/>
+3. The stock report also stayed to the planned design just with extra columns to allow more data to be presented to the user.
 
-1. Page 4 is the test that is followed from the procedure found on page 2.
+<img src="static/images/wf_stock_report.png" alt="page-4" style="width:450px;"/> <img src="static/images/stock_overveiw.png" alt="page-4" style="width:450px;"/>
 
-<img src="asset/css/script/images/page-5.png" alt="page-5" style="width:450px;"/>
+4. Receipt stock design stayed similar to design. I would change the colour of the form to a lighter colour for this part of the design.
 
-1. Page 5 is the user incentive, a certificate that shows evident of successful training completion.
+<img src="static/images/wf_receipt.png" alt="page-5" style="width:450px;"/> <img src="static/images/receipt.png" alt="page-5" style="width:450px;"/> 
 
-<img src="asset/css/script/images/page-6.png" alt="page-6" style="width:450px;"/>
+5. Issue stock stayed stayed similar to initial design, again I would change the form colours and more the text more clearer if done again.
 
-1. Page 6 has been changed, the main reason for this page was show the user that they had made a mistake and would need to start the test again. This was changed as it made more sence for the user to be sent back to the procedure to review instead of having a full new screen to highlight.
+<img src="static/images/wf_issue.png" alt="page-6" style="width:450px;"/> <img src="static/images/issue.png" alt="page-6" style="width:450px;"/>
 
-<img src="asset/css/script/images/page-7.png" alt="page-6" style="width:450px;"/>
+1. t.
+
+<img src="static/images/wf_move.png" alt="page-6" style="width:450px;"/>
 
 1. Page 7 has also been change for the live production, original plan was for a pop up to be used to show incorrect answer however, this was not going to be suitable for a small device and the pop was removed and the incorrect answer now gets highlighted. A link is also shown and the next button removed so that the user is sent back to the procedure to review.
 
