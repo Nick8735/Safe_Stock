@@ -30,52 +30,53 @@ Safe Stock employs MongoDB as its non-relational database for efficient data sto
 
 ### First Time Visitor Goals
 
-1.  As a First time visitor, I want to understand what is being offered to me.
-2.  As a First time visitor I want to areas that can help my buisness stand out to help me decide on the right training system to use.
-3. As a First-time visitor,  I want to navigate the website easily and try the try demonstrations to see what Train A Skill has to offer.
+1.  As a first time visitor, I want to view what data is being stored.
+2.  As a first time visitor I want to bring stock to account and have a variety of different data ranging across multple different identifiers to support with traceability and stock control. 
+3.  As a first time visitor, I want to issue stock from account to keep stock accurate with stock movement out of the business and data base.
+4. As a first-time visitor,  I want to navigate the website easily and have clear access to all pages of the site.
 
 ### Returning Visitor Goals
 
-1. As a Returning Visitor, I want to re-visit the demo's to gain further knowledge on how the system works, if I fail I want to be directed back to the standard operating system to review and try again.
-2. As a Returning Visitor, I want to have an opportunity to reach out to the company to request further details and discuss next steps.
-3. As a Returning Visitor, I want to find links to social media sites.
+1. As a returning visitor, I want to check stock levels.
+2. As a returning visitor, I want to check stock accuracy and know if there are discrepancies within the stock.
+3. As a returning visitor, I want to look at stock that needs to be reordered.
  
 
 ### Frequent Visitors Goals
 
-1. As a Frequent User, I want to see new and fresh demo's avaiilable.
-2. As a Frequent User, I want to see new updates including timed runs and other areas that could help support the training of my staff.
-3. As a Frequent User, I want to recieve praise on my completion something that proves I have completed my training.
+1. As a frequent user, I want to see a dashboard that shows stock levels and users.
+2. As a frequent user, I want to investigate stock discrepancies by reviewing the stock levels and seeing who was last to adjust any of the stock.
+3. As a frequent user, I want to search for a specific item by searching for the name when reviewing stock levels.
 
 ## Testing User Stories
 
-* Wendy - Civil Servant
+* Diane - Chef
 
 First Time Visitor
 
-1. First time visitor was able to understand what the site had to offere.
-2. User commented on the importance of the Training at her place of work and mentioned that having a training system like this would really help with speedy training and ti set a standard.
-3. User was able to navigate the demo's and read through first procedure then attempted test.
+1. First time visitor was able to navigate to the stock overveiw screen.
+2. User was able to receipt stock to account without any errors.
+3. User was able to issue stock from account without any errors.
 
 Returning Visitor
 
-1. User found it simple to find the demos and start another test.
-2. User was able to write and send her request for further information on the contact page.
-3. User was able to navigate to the social media links and was taken directly to the sign in screens.
+1. User found it simple to check the stock on the overveiw report.
+2. User was able to navigate to stock check and input stock details into check accuracy.
+3. User was able to navigate to low stock report and was able to explain what they would use this report would be used for.
 
 Frequent Visitor
 
-1. The user was unable to discover any fresh Demo's however the expectation for a live enviroment would be the demos would showcase new updates and system evolutions.
-2. New updates such as timed tests would be available on the real-time version of site.
-3. User was able to receive praise in the form of a certificate whith a succesaful demo completion.
+1. The user was able to navigate to the dashboard and was able to outline the importance of both graphs. 
+2. The User to see what user completed the last transaction.
+3. The user was able to search for a specific stock item.
 
 # Design
 
 ### Colour Scheme
 
-<img src="asset/css/script/images/Palette.png" alt="home-page" style="width:550px;"/>
+<img src="static/images/palette.png" alt="home-page" style="width:550px;"/>
 
-1. I chose the color palette to create an office ambiance and selected shades that promote user comfort and a sense of togetherness.
+1. I chose the color palette as I believe the shades of blue and grey give a professional feel. 
 
 ### Imagery
 
