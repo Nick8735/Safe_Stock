@@ -89,7 +89,7 @@ def stock_overview():
 @app.route("/stock_check/<stock_id>/edit", methods=["GET"])
 def stock_check_edit_page(stock_id):
     stock = mongo.db.stock.find_one({"_id": ObjectId(stock_id)})
-    return render_template("stock_edit.html", stock=stock)
+    return render_template("stock_check_edit.html", stock=stock)
 
 @app.route("/receipt", methods=["GET"])
 def receipt():
@@ -169,7 +169,7 @@ def stock_check():
 @app.route("/stock_check/<stock_id>", methods=["GET"])
 def stock_check_detail(stock_id):
     stock = mongo.db.stock.find_one({"_id": ObjectId(stock_id)})
-    return render_template("stock_check_detail.html", stock=stock)
+    return render_template("stock_check_edit.html", stock=stock)
 
 @app.route("/stock_check/<stock_id>/edit", methods=["POST"])
 def stock_check_edit(stock_id):
