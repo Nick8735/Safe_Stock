@@ -109,21 +109,29 @@ Frequent Visitor
 
 <img src="static/images/wf_issue.png" alt="page-6" style="width:450px;"/> <img src="static/images/issue.png" alt="page-6" style="width:450px;"/>
 
-1. t.
+6. Move stock was not used in the final production.
 
 <img src="static/images/wf_move.png" alt="page-6" style="width:450px;"/>
 
-1. Page 7 has also been change for the live production, original plan was for a pop up to be used to show incorrect answer however, this was not going to be suitable for a small device and the pop was removed and the incorrect answer now gets highlighted. A link is also shown and the next button removed so that the user is sent back to the procedure to review.
+7. Dashboard added during production.
 
+<img src="static/images/dashboard.png" alt="page-6" style="width:450px;"/>
+
+8. Low stock report added during production.
+
+<img src="static/images/low_stock_report.png" alt="page-6" style="width:450px;"/>
+
+9. Stock Count added during production.
+
+<img src="static/images/check_stock.png" alt="page-6" style="width:450px;"/>
 
 ## Areas that changed during development
 
-* I made the choice to have the procedure flow at the start of the demo instead of a page that is not on the same access line.
-* Removed the pop-up from the quiz page for an incorrect answer to better support user access for mobile devices.
-* Removed the failed test page, this would of been a waste of time for the user.
-* Added a link on any single incorrect answer and halted the test for user to re-train.
-* Added Nav bar above hero image.
-* Removed the signup demo screen which would be added if backend was available.
+* I increased the amount of transactions to ensure that the system would support the user with more tasks.
+* I removed the move stock feature as this was not going to have the controls I wanted being that my aim was to have a dynamic schema and not fixed.
+* I added low stock page, this would be used to remind the user to re-order stock when the levels hit a certain threshold. Future development of this would be to allow the user to set the threshold.
+* I added a dashboard to track KPI's for the system. Future development would be a selection of data the user could request to capture the desired KPI in a multitude of graphs including histograms with trend lines.
+* I added a stock count process, this is to enable the user to do a blind stock count and will give the user access to update the system to the correct findings.
 
 # Features
 
