@@ -137,7 +137,16 @@ def issue_form():
             "stock_qty": request.form.get("stock_qty"),
             "created_by": session["user"]
         }
-        mongo.db.stock.delete_one(issue)
+
+        # Construct a filter based on purchase order (adjust criteria as needed)
+        filter_criteria = {
+            "stock_purchase_order": issue["stock_purchase_order"],
+            "stock_name": issue["stock_name"],  # Include other criteria as needed
+        }
+
+        # Delete the document that matches the filter
+        mongo.db.stock.delete_one(filter_criteria)
+
         flash("Stock Successfully Issued")
         return redirect(url_for("stock_overview"))
 
