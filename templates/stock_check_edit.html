@@ -1,40 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit</title>
+</head>
+<body>
+  
 {% extends "base.html" %}
 {% block content %}
 
-  <h2>Edit Stock</h2>
+<h2>Edit Stock</h2>
 
-  <form method="POST" action="{{ url_for('stock_check_edit', stock_id=str(stock['_id'])) }}">
-    <div class="form-group">
-      <label for="stock_purchase_order">Stock Purchase Order</label>
-      <input type="text" class="form-control" id="stock_purchase_order" name="stock_purchase_order" value="{{ stock.stock_purchase_order }}" required>
-    </div>
+{% set edit_url = url_for('stock_check_edit', stock_id=str(stock['_id'])) %}
 
-    <div class="form-group">
-      <label for="stock_name">Stock Name</label>
-      <input type="text" class="form-control" id="stock_name" name="stock_name" value="{{ stock.stock_name }}" required>
-    </div>
+<form method="POST" action="{{ edit_url }}">
+  <div class="form-group">
+    <label for="stock_purchase_order">Stock Purchase Order</label>
+    <input type="text" class="form-control" id="stock_purchase_order" name="stock_purchase_order" value="{{ stock.stock_purchase_order }}" required>
+  </div>
 
-    <div class="form-group">
-      <label for="stock_number">Stock Number</label>
-      <input type="text" class="form-control" id="stock_number" name="stock_number" value="{{ stock.stock_number }}" required>
-    </div>
 
-    <div class="form-group">
-      <label for="stock_uom">Stock UOM</label>
-      <input type="text" class="form-control" id="stock_uom" name="stock_uom" value="{{ stock.stock_uom }}" required>
-    </div>
+  <div class="form-group">
+    <label for="stock_name">Stock Name</label>
+    <input type="text" class="form-control" id="stock_name" name="stock_name" value="{{ stock.stock_name }}" required>
+  </div>
 
-    <div class="form-group">
-      <label for="stock_location">Stock Location</label>
-      <input type="text" class="form-control" id="stock_location" name="stock_location" value="{{ stock.stock_location }}" required>
-    </div>
+  <div class="form-group">
+    <label for="stock_number">Stock Number</label>
+    <input type="text" class="form-control" id="stock_number" name="stock_number" value="{{ stock.stock_number }}" required>
+  </div>
 
-    <div class="form-group">
-      <label for="stock_qty">Stock Quantity</label>
-      <input type="text" class="form-control" id="stock_qty" name="stock_qty" value="{{ stock.stock_qty }}" required>
-    </div>
+  <div class="form-group">
+    <label for="stock_uom">Stock UOM</label>
+    <input type="text" class="form-control" id="stock_uom" name="stock_uom" value="{{ stock.stock_uom }}" required>
+  </div>
 
-       <button type="submit" class="btn btn-primary">Update</button>
-  </form>
+  <div class="form-group">
+    <label for="stock_location">Stock Location</label>
+    <input type="text" class="form-control" id="stock_location" name="stock_location" value="{{ stock.stock_location }}" required>
+  </div>
+
+  <div class="form-group">
+    <label for="stock_qty">Stock Quantity</label>
+    <input type="text" class="form-control" id="stock_qty" name="stock_qty" value="{{ stock.stock_qty }}" required>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
 
 {% endblock %}
+</body>
+</html>
