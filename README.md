@@ -284,10 +284,12 @@ Errors were for oversights in my code.
 
 |Action                                         |                       Expected Result                        | Actual Result |
 |:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
-| I want to use Nav-Bar to access Demo's 1 and 2 | Dropdown will appear and links will take user to destination |   As expected |
+| I want to Access the register page and register a new user and password. |Flash message will appear to confirm creation  |   As expected |
 
 
-![Test 1](asset/css/asset/doc/user-storie_testing/test-1.gif)
+<video width="320" height="240" controls>
+  <source src="/workspace/Safe_Stock/static/images/register.mp4" type="video/mp4">
+</video>
 
 
 <br>
