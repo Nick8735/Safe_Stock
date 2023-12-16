@@ -192,6 +192,7 @@ Frequent Visitor
 7. mutiple reports including Transaction history, Purchase order history etc...
 8. Purchase order planned delivery dates which can be used in conjunction with on time in full report.
 9. electronic registers, this would be used for bespoke business requirments such as safety checks of racking and out of scope system work.
+10. Barcode creation to allow easire access and scanning for a better user experience.
 
 # Technologies Used
 
@@ -544,9 +545,9 @@ https://github.com/Nick8735/Safe_Stock/assets/110351696/baba31f6-3a03-4cc9-9355-
 
 * Website was accessed by multiple family and friends who gave the following feedback for bugs and suggestions.
 
-1. Andrew - The website is very simple and easy to use, as a shift manager I need to be confident that the systems we use for training will result in skilled workers. The way the system is presented pushes the user to leanr when unsure. My only criticism was a question that could of been easily misconstured for something else which you re-worded.
+1. Chris - The Software is very simple and logical which would make it easier for people to use, I would like to see less typing in details and more populated fields on future updates, this will help decrease errors and make the system even easier to use. 
 
-2. Wendy - I believe this kind of training system is a must for businesses with large amounts of employees. Updates down the line I would like to see some statistics of who has completed the tests and who has struggled. This would help me understand which of my employees need more support. Great job! 
+2. Simon - I could see small businesses using this software to account for small store stock levels and help increase stock traceability and usage. I would love to see further development and watch this piece of software grow with further updates. I like the messages that appear after a successful transaction, it is good to not have to always keep pressing ok when one pops up like you do on a lot of systems. 
 
 # Deployment
 
