@@ -217,10 +217,16 @@ Frequent Visitor
 *  Balsamic was used to support with design and planning.
 5. Shutterstock 
 * Shutterstock was used to format images.
-6. W3Schools 
-* supported with adding link to function in JS.
-* supported with avice on Stopping of the next button function when incorrect answer is performed.
-
+6. Stack Overflow
+* Supported with debugging across the different functions.
+7. Slack
+* Supported with mutiple issues with deploying and dockerfile queries.
+8. Mongo DB
+* Database for the software.
+9. Heroku
+* Cloud server for deployment.
+10. Gitpod
+* Gitpod used to code.
 
 
 # Testing
