@@ -551,17 +551,24 @@ https://github.com/Nick8735/Safe_Stock/assets/110351696/baba31f6-3a03-4cc9-9355-
 
 # Deployment
 
-## GitHub Pages
+## Mongo DB
 
-The project was deployed to GitHub Pages using the following steps...
-
-1. Log in to GitHub and locate the GitHub Repository
-2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu. Alternatively Click Here for a GIF demonstrating the process starting from Step 2.
-3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
-4. Under "Source", click the dropdown called "None" and select "Master Branch".
-5. The page will automatically refresh.
-6. Scroll back down through the page to locate the now published site link in the "GitHub Pages" section.
-
+1. Go to Mongo DB and create a new acount.
+2. Create a cluster.
+3. Select AWS for cloud provider.
+4. Select closest region.
+5. Choose M0 cluster tier.
+6. Create Cluster Name.
+7. Press create database access.
+8. Create a username and password.
+9. Ensure user privilege is read and write to DB.
+10. Click add user.
+11. Click on netwrok access and click ad IP address and select allow access from anywhere.
+12. Click on your cluster tab and click on collection button.
+13. click add my own data and create your database name and collection.
+14. click on insert document in your database.
+15. <img src="static/images/document.png" alt="page-6" style="width:450px;"/>
+16. Install pip3 insall pymongo in terminal.
 
 
 ## Forking the GitHub Repository
@@ -572,6 +579,19 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
 3. You should now have a copy of the original repository in your GitHub account.
 
+## Deploying to Heroku
+
+1. In your terminal enter $ pip3 freeze --local > requirments.txt.
+2. Then use the echo web: python app.py > Procfile to create files for flask.
+3. login to Heroku and click on the new button to create a new app.
+4. Connect to your Github Repository on the deploy page in heroku.
+5. Go to Heroku settings tab and goto your Config Var and add in your variables
+6. Enable automatic deployment and click Deploy.
+7. Set up environment on Heroku by going to Settings tab.
+8. On Config Vars section, click Reveal Config Vars
+9. Based on env.py file, add all the environment variables to the Config Vars section.
+
+
 ## Making a Local Clone
 
 1. Log in to GitHub and locate the GitHub Repository
@@ -581,14 +601,7 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 5. Change the current working directory to the location where you want the cloned directory to be made.
 6. Type git clone, and then paste the URL you cpoied in step 3
 
-$ git clone https://github.com/Nick8735/Training
-
-
 Press Enter. Your local clone will be created.
-
-
-$ git clone https://github.com/Nick8735/Training
-
 
 * Cloning into `CI-Clone`...
 * remote: Counting objects: 10, done.
@@ -600,7 +613,7 @@ $ git clone https://github.com/Nick8735/Training
 
 * [W3Schools](https://www.w3schools.com/) for support with bugs and coding errors.
 
-* [Bootstrap5.3](https://getbootstrap.com/) Used to support with navigation bar.
+* [Materialize](https://materializecss.com/) Used to support with navigation bar and card creation.
 
 * [Shutterstock](https://www.shutterstock.com/) for all images.
 
