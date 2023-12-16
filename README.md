@@ -287,9 +287,7 @@ Errors were for oversights in my code.
 | I want to Access the register page and register a new user and password. |Flash message will appear to confirm creation  |   As expected |
 
 
-<video width="320" height="240" controls>
-  <source src="/workspace/Safe_Stock/static/images/register.mp4" type="video/mp4">
-</video>
+https://github.com/Nick8735/Safe_Stock/assets/110351696/fbb632d4-76c3-491d-9bb9-5b233fabe863
 
 
 <br>
@@ -298,9 +296,9 @@ Errors were for oversights in my code.
 
 |Action                                         |                       Expected Result                        | Actual Result |
 |:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
-| I want to navigate to demo button and open Manufacturing Procedure. | Procedure page will be visable. |   As expected |
+| I have registered I want to return to login. | Press already register button to go back to login. |   As expected |
 
-![Test 2](asset/css/asset/doc/user-storie_testing/test-2.gif)
+[![Test 2](asset/css/asset/doc/user-storie_testing/test-2.gif)](https://github.com/Nick8735/Safe_Stock/assets/110351696/39aef6b2-6c0f-42c4-93e8-adfada9148e2)
 
 <br>
 
@@ -308,9 +306,13 @@ Errors were for oversights in my code.
 
 |Action                                         |                       Expected Result                        | Actual Result |
 |:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
-| I want to navigate to test button and select manufacturing test 1. | Test page will be visable. |   As expected |
+| I want to login with my new account. | login via login box. |   As expected |
 
-![Test 3](asset/css/asset/doc/user-storie_testing/test-3.gif)
+
+https://github.com/Nick8735/Safe_Stock/assets/110351696/3d789c58-3994-4132-a08b-8b507035e5fc
+
+
+
 
 <br>
 
@@ -318,9 +320,13 @@ Errors were for oversights in my code.
 
 |Action                                         |                       Expected Result                        | Actual Result |
 |:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
-| I want to select the correct answer which will then highlight green. | Answer highlighted in green. |   As expected |
+| If I put in the incorrect details do I still login. | User receives flash message stating incorrect details and does not progress. |   As expected |
 
-![Test 4](asset/css/asset/doc/user-storie_testing/test-4.gif)
+
+
+https://github.com/Nick8735/Safe_Stock/assets/110351696/ca64d5b6-bb9d-4726-bbba-ca171633244c
+
+
 
 <br>
 
@@ -328,18 +334,26 @@ Errors were for oversights in my code.
 
 |Action                                         |                       Expected Result                        | Actual Result |
 |:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
-| I want to select the wrong answer. | correct answer will highlight in green, incorrect answer will highlight in red and link back to procedure will be visable within correct answer. The next button will not show for the next question|   As expected |
+| I want to go to the home page. | user will be at the home page after login|   As expected |
 
-![Test 5](asset/css/asset/doc/user-storie_testing/test-5.gif)
+
+https://github.com/Nick8735/Safe_Stock/assets/110351696/cc26a0e1-b3bc-48c9-a674-7b4b05ab1c97
+
+
+
 <br>
 
 ## Test 6
 
 |Action                                         |                       Expected Result                        | Actual Result |
 |:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
-| Complete question 5. | Next screen will show the result and inform user test complete|   As expected |
+| Does the Navbar buttons work. | Each NavBar button will take the user to each specific transaction.|   As expected |
 
-![Test 6](asset/css/asset/doc/user-storie_testing/test-6.gif)
+
+
+https://github.com/Nick8735/Safe_Stock/assets/110351696/5476bfc8-98fd-488c-96e3-c9e415477b43
+
+
 
 <br>
 
@@ -347,18 +361,25 @@ Errors were for oversights in my code.
 
 |Action                                         |                       Expected Result                        | Actual Result |
 |:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
-| Press complete button. | Next screen will show a certificate|   As expected |
+| Where to find stock the stock list taken from Mongo DB and shown on site. | User will click on stock overview and see full stock list taken from Mongo DB|   As expected |
 
-![Test 7](asset/css/asset/doc/user-storie_testing/test-7.gif)
+
+https://github.com/Nick8735/Safe_Stock/assets/110351696/c66771d6-6435-47a8-b77d-e24b89ad7b76
+
+
 <br>
 
 ## Test 8
 
 |Action                                         |                       Expected Result                        | Actual Result |
 |:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
-| Press Home button from Nav-Bar. | Be taken to Home screen|   As expected |
+| Does the receipt button work. | User will click on Receipt and a form will show |   As expected |
 
-![Test 8](asset/css/asset/doc/user-storie_testing/test-8.gif)
+
+
+https://github.com/Nick8735/Safe_Stock/assets/110351696/39e5e775-494b-4458-98b6-f0e9f0b17582
+
+
 
 <br>
 
@@ -366,9 +387,13 @@ Errors were for oversights in my code.
 
 |Action                                         |                       Expected Result                        | Actual Result |
 |:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
-| Press contact us in Nav-Bar. | Be taken to Contact us|   As expected |
+| How do I create stock and view stock holdings. | User will complete receipt form and notification will appear to tell user stock is created. User will go to stock overview to check new row.|   As expected |
 
-![Test 9](asset/css/asset/doc/user-storie_testing/test-9.gif)
+
+
+https://github.com/Nick8735/Safe_Stock/assets/110351696/739a9ef8-a146-420c-96fb-ab4f140b2c63
+
+
 
 <br>
 
@@ -376,9 +401,13 @@ Errors were for oversights in my code.
 
 |Action                                         |                       Expected Result                        | Actual Result |
 |:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
-| Fill in form and submit. | Be taken to thank you page|   As expected |
+| Has this row been created in Mongo DB and matches what is on the site in stock overview. | User will check stock overview then check the document in Mongo DB|   As expected |
 
-![Test 10](asset/css/asset/doc/user-storie_testing/test-10.gif)
+
+
+https://github.com/Nick8735/Safe_Stock/assets/110351696/bcf8a21d-0896-4402-8f52-49c9312331ce
+
+
 
 <br>
 
@@ -386,54 +415,78 @@ Errors were for oversights in my code.
 
 |Action                                         |                       Expected Result                        | Actual Result |
 |:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
-| Press Home button in Nav-Bar. | Be taken to Home page|   As expected |
+| I want to Issue stock from account. | User will go to Issue transaction and complete form and get confirmation of issuance|   As expected |
 
-![Test 11](asset/css/asset/doc/user-storie_testing/test-11.gif)
+
+https://github.com/Nick8735/Safe_Stock/assets/110351696/70878c6e-5747-4906-b1f9-40e89575218f
+
+
+
 <br>
 
 ## Test 12
 
 |Action                                         |                       Expected Result                        | Actual Result |
 |:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
-| Press incorrect answer on test and select hyperlink. | Be taken to procedure page|   As expected |
+| Has the Row been deleted in Mongo DB. | User will check stock overview to see that row is deleted then will check Mongo DB for the document|   As expected |
 
-![Test 12](asset/css/asset/doc/user-storie_testing/test-12.gif)
+
+
+https://github.com/Nick8735/Safe_Stock/assets/110351696/9424f7eb-ad48-45ec-8b2c-8c4771e06e06
+
+
 <br>
 
 ## Test 13
 
 |Action                                         |                       Expected Result                        | Actual Result |
 |:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
-| I want to navigate to first-aid demo button . | Navigate to procedure page. |   As expected |
+| I want to see a graph on stock holding, qty. | User will navigate to the Dashboard transaction on the home page and verify one coloumn against the stock overview to see if it is correct. |   As expected |
 
-![Test 13](asset/css/asset/doc/user-storie_testing/test-13.gif)
+
+
+https://github.com/Nick8735/Safe_Stock/assets/110351696/1ed0af9a-d928-4d21-9a8e-356c7dc2038b
+
+
 <br>
 
 ## Test 14
 
 |Action                                         |                       Expected Result                        | Actual Result |
 |:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
-| I want to navigate to first-aid test button . | Start first-aid test. |   As expected |
+| I want to edit my stock holding. | User will go to stock overview and press edit, user will adjust Qty and submit, user will get a message to stock holdings have been changed. |   As expected |
 
-![Test 14](asset/css/asset/doc/user-storie_testing/test-14.gif)
+
+
+https://github.com/Nick8735/Safe_Stock/assets/110351696/131ed80e-b2ef-4d92-80e4-eeeb742f74a2
+
+
 <br>
 
 ## Test 15
 
 |Action                                         |                       Expected Result                        | Actual Result |
 |:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
-| I want to select correct answer . | correct answer highlights green and next button appears. |   As expected |
+| Has the document in Mongo DB been adjusted from the edit in stock overview. | User will check stock overview then go to Mongo DB and check the document for the change. |   As expected |
 
-![Test 15](asset/css/asset/doc/user-storie_testing/test-15.gif)
+
+
+https://github.com/Nick8735/Safe_Stock/assets/110351696/5f1ca2bf-3eb0-4b7b-a95c-65bfd769ad40
+
+
 <br>
 
 ## Test 16
 
 |Action                                         |                       Expected Result                        | Actual Result |
 |:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
-| I want to select incorrect answer . | correct answer highlights green and incorrect highlights red, hyperlink appears in correct answer and next button does not appears. |   As expected |
+| I want my stock holdings that have a qty 5 or below to show on the low stock report. | user will check low stock report then go to stock overview and make a qty over 5 down to a number less than 5, once done user will check the low stock report to see if row has appeared. |   As expected |
 
-![Test 16](asset/css/asset/doc/user-storie_testing/test-16.gif)
+
+
+https://github.com/Nick8735/Safe_Stock/assets/110351696/147a2e7c-e410-4c0b-9b2d-9c21aa0e1b9b
+
+
 
 <br>
 
@@ -441,9 +494,13 @@ Errors were for oversights in my code.
 
 |Action                                         |                       Expected Result                        | Actual Result |
 |:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
-| I want to select incorrect answer and select hyperlink. | correct answer highlights green and incorrect highlights red, hyperlink appears in correct answer and next button does not appears. Hyperlink will take me to the procedure page |   As expected |
+| I want to check that if I get a stock increase over 5 on an item it will be removed from the low stock report. | User will check the low stock report for a row and will then go to the stock overview and increase the qty, user will then check this against the low stock report to see that row has disappeared |   As expected |
 
-![Test 17](asset/css/asset/doc/user-storie_testing/test-17.gif)
+
+
+https://github.com/Nick8735/Safe_Stock/assets/110351696/df7d4586-69a5-45f9-92bf-e23f035a8fae
+
+
 
 
 <br>
@@ -452,9 +509,36 @@ Errors were for oversights in my code.
 
 |Action                                         |                       Expected Result                        | Actual Result |
 |:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
-| I want to select each icon in the footer. | Be taken to each social media page |   As expected |
+| When checking physical stock I want input my findings and get a message to tell me my stock is correct. | user will access the stock count menu and fill in the form with current stock details and press the button |   As expected |
 
-![Test 18](asset/css/asset/doc/user-storie_testing/test-18_v2.gif)
+
+
+https://github.com/Nick8735/Safe_Stock/assets/110351696/a2e358ec-16e3-4b28-add1-a9021cf665ca
+
+
+
+## Test 19
+
+|Action                                         |                       Expected Result                        | Actual Result |
+|:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
+| I want to be told if my stock has a discrepancie during a stock count. | User will go to stock count and input incorrect details on the form user will get a message to say stock is incorrect. |   As expected |
+
+
+
+https://github.com/Nick8735/Safe_Stock/assets/110351696/73543ec9-4570-4849-91f2-d57edf82b421
+
+
+
+## Test 20
+
+|Action                                         |                       Expected Result                        | Actual Result |
+|:-----------------------------------------------|:------------------------------------------------------------:|--------------:|
+| I want to logout. | user will press the logout button in Navbar |   As expected |
+
+
+
+https://github.com/Nick8735/Safe_Stock/assets/110351696/baba31f6-3a03-4cc9-9355-7f4a4bbe90a3
+
 
 ## User Feedback
 
