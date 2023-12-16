@@ -137,47 +137,49 @@ Frequent Visitor
 
 * Nav-Bar - Professional and centered for user focus.
 
-![Nav-Bar](asset/css/script/images/nav-bar.png)
+![Nav-Bar](static/images/navbar1.png)
 
-* Nav-Bar dropdown with access to two demo pages.
+* Nav-Bar dropdown used with mobile.
 
-![Nav-Bar_dropdown](asset/css/script/images/nav-bar_dropdown.png)
+![Nav-Bar_dropdown](static/images/navbar2.png)
 
-* Purpose of website and why the user needs to explore more.
+* Login Page.
 
-![Mission](asset/css/script/images/mission.png)
+![Mission](static/images/login.png)
 
- * Staff stories on the importance of training to help give the user the feel of independant advice.
+ * Register for user to create an account.
 
-![Relate ](asset/css/script/images/relate-user.png)
+![Relate](static/images/register.png)
 
-* Site objective demonstration buttons where the user will depart on leqarning journey and will understand the capabilities of the website.
+* Access page for site, links to all transaction pages.
 
-![Demo's](asset/css/script/images/training_demos.png)
+![Demo's](static/images/home1.png)
 
-* Procedure will be a simplified process for either manufacturing or first-aid, user will read and undertand the procedure before moving onto the test.
+* Stock overview page which shows the stock list taken from MONGO DB.
 
-![Procedure](asset/css/script/images/procedure.png)
+![Procedure](static/images/stock_overveiw_1.png)
 
- * Test to confrim users understanding of the procedure and a showcase of how the system would work if implemented into a orginisation.
+ * Edit stock, edit documents and change stock levels.
 
- ![Test](asset/css/script/images/test.png)
+ ![Test](static/images/edit_stock.png)
 
-* End of test and score confirmation. 
+* Receipt stock, adds a document to Mongo DB which can then be viewed on the stock overview page. 
 
-![End](asset/css/script/images/end_state.png)
+![End](static/images/receipt.png)
 
-* Certificate for user completion, incentive and evidence. 
+* Issue Stock, deletes a line off Mongo DB which can be viewed in the stock overview. 
 
-![Cert](asset/css/script/images/cert.png)
+![Cert](static/images/issue.png)
 
-* Contact page. 
+* Dashboard view KPI's. 
 
-![Contact](asset/css/script/images/contact.png)
+![Contact](static/images/dashboard.png)
 
-* Confirmation of contact page submit. 
+* Low Stock report, filters for all stock levels 5 and below, this is used for the user to re-order stock. 
 
-![Contact_submit](asset/css/script/images/thank_you.png)
+![Contact_submit](static/images/check_stock.png)
+
+* Stock count page, used for when the user is checking stock. Transaction will tell the user if the details are correct, if not the user will be sent to the stock overview page to change the stock. 
 
 ## Future Updates
 
