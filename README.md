@@ -183,12 +183,15 @@ Frequent Visitor
 
 ## Future Updates
 
-1. Having a data capture system which allows users to veiw overall test completion.
-2. Sign up sheet that allows the user to have a personalised certificate on completion, this will support traceability of completed tests.
-3. A way to input new procedures and tests, maybe an online form.
-4. Timed testing.
-5. Work instruction training set out a bit differently but tested the same way.
-6. Set individual training goals.
+1. Stock overview will have a search bar so the users can view selective data.
+2. Issue transaction will be simplified and will be drop downs to stock user error causing problems with issuance.
+3. Master data for locations and stock details will mean easier searching and stock could be moved locations.
+4. Cycle counting to ensure all lodactions are checked once a month.
+5. Change password for login page.
+6. More graphs for dashboard.
+7. mutiple reports including Transaction history, Purchase order history etc...
+8. Purchase order planned delivery dates which can be used in conjunction with on time in full report.
+9. electronic registers, this would be used for bespoke business requirments such as safety checks of racking and out of scope system work.
 
 # Technologies Used
 
@@ -197,6 +200,10 @@ Frequent Visitor
 * HTML5
 * CSS3
 * JS
+* python
+* Heroku
+* Mongo DB
+* Flask
 
 ## Frameworks, Libraries & Programs Used
 
