@@ -211,7 +211,13 @@ def stock_count():
         stock_number = request.form.get("stock_number")
         stock_uom = request.form.get("stock_uom")
         stock_location = request.form.get("stock_location")
-        stock_qty = request.form.get("stock_qty")
+        
+        # Convert stock_qty to an integer
+        try:
+            stock_qty = int(request.form.get("stock_qty"))
+        except ValueError:
+            flash("Invalid quantity. Please enter a valid integer.", "error")
+            return redirect(url_for("stock_count"))
 
         stock = mongo.db.stock.find_one({"stock_name": stock_name})
 
@@ -236,6 +242,7 @@ def stock_count():
             flash("Incorrect stock count. Please edit stock at overview.", "error")
 
     return render_template("stock_count.html")
+
 
 def get_low_stock_items(threshold_quantity):
     # MongoDB Query: Retrieve items with quantity less than the threshold
