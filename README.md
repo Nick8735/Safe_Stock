@@ -50,8 +50,6 @@ Safe Stock employs MongoDB as its non-relational database for efficient data sto
 
 ## Testing User Stories
 
-* Diane - Chef
-
 First Time Visitor
 
 1. First time visitor was able to navigate to the stock overveiw screen.
@@ -70,7 +68,18 @@ Frequent Visitor
 2. The User to see what user completed the last transaction.
 3. The user was able to search for a specific stock item.
 
-# Design
+### Data Structure
+
+1. Data structure that is used in Mongo DB and interfaces into Safe Stock.
+
+<img src="static/images/data_structure.png" alt="data" style="width:550px;"/>
+
+### Process Map
+
+1. Process map shows how the system will interact with Mongo DB and how the transactions will interface.
+
+<img src="static/images/process_flow.png" alt="data" style="width:550px;"/>
+
 
 ### Colour Scheme
 
