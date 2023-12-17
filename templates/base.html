@@ -10,7 +10,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         {% block styles %}
         {% endblock %}
-        <title>Safe Stock</title>  <!-- Added title element here -->
+        <title>Safe Stock</title>  
     </head>
     
 
@@ -19,7 +19,7 @@
 
 
 	<header>
-        
+        <!-- Navbar -->
 		<nav class="nav-extended text-shadow light-blue darken-1">
 			<div class="nav-wrapper">
 				<a href="{{ url_for('get_stock') }}" class="brand-logo">Safe Stock<i class="large material-icons">lock</i></a>
@@ -37,7 +37,7 @@
 				</ul>
 			</div>
 		</nav>
-
+<!-- Navbar mobile -->
         	<ul class="sidenav" id="mobile-demo">
             <li><h4 class="center-align white-text text-darken 4">Safe Stock</h4></li>
             <li><a href="{{ url_for('get_stock') }}">Home</a></li>

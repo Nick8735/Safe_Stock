@@ -1,9 +1,11 @@
 .text-shadow {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
+/* Message size */
 .flashes h4 {
     line-height: 2;
 }
+/* Login styles */
 .login {
     background-image: url('/static/images/login.jpg');
     background-size: cover;
@@ -14,7 +16,7 @@
     align-items: center;
     
    }
-
+/* Title styles*/
    .main_title {
     text-align: center; /* Center the text */
     background-color: #023059; /* Background color */
@@ -28,7 +30,7 @@
     margin: 0; /* Remove default margin */
     font-weight: 700;
 }
-
+/* Transaction card styles on home screen */
 .card-panel{
     width: 550px;
     padding: 25px;
@@ -41,6 +43,7 @@
 html {
     background-color: #023059;
 }
+/* Image card styles */
 .overview-image{
     height: auto;
     width: 500px;
@@ -65,6 +68,7 @@ h2{
     display: block; 
     width: 100%;
   }
+  /* Was supposed to turn messages for stock count different colours did not work future update */
   .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
     color: black;
     
@@ -88,6 +92,7 @@ h2{
 img{
     border: black solid 2px;
 }
+/* Transaction page stylings */
 .issue {
     background-color: #546e7a;
     padding: 20px; /* Optional: Add some padding to the form container */
@@ -132,7 +137,7 @@ img{
     margin: 0 auto;
     width: 100%;
 }
-
+/* media queries */
 
 @media only screen and (min-width: 768px) {
     .overview-image, .stock-image {
