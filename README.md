@@ -305,11 +305,11 @@ The W3C Markup Validator was used to validate every page of HTML code.
 ### Lighthouse testing
 
 * Lighthouse shows areas could be improved regarding some images positioning and file sizes which could affect the durability of the website if in the red.
-* Main objective for myself was to have an accessibility score of over 90% as seen by the foillowing images the site has a score of 98%.
+* Main objective for myself was to have an accessibility score of over 90% as seen by the foillowing images the site has a score of 92%.
 
-![Lighthouse 1](asset/css/script/images/lighthouse-1.png)
+![Lighthouse 1](static/images/lighthouse.png)
 
-![Lighthouse 2](asset/css/script/images/lighthouse-2.png)
+
 
 ## User Stories Testing
 
