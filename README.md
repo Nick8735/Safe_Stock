@@ -282,39 +282,25 @@ Frequent Visitor
 
 The W3C Markup Validator was used to validate every page of HTML code.
 
-* 0 errors with only one warning which has no impact on the user or integrity on the site.
+* Only errors are for Jinja but not anything that has any serious impact on the code or integrity of the system.
 
 
-![HTML validation no errors](asset/css/script/images/html-warning.png)
+![HTML validation no errors](static/images/html_test.png)
 
 
 ### CSS
 
-* The following shows CSS errors found at W3C Validator: 
+* The following shows no CSS errors found at W3C Validator: 
 
-Errors were for oversights in my code. 
-
-![CSS validation errors](asset/css/script/images/css-validation.png)
-
-* Errors rectified and validation complete.
-
-![CSS validation no errors](asset/css/script/images/css-no_errors.png)
+![CSS validation ](static/images/css_test.png)
 
 
-### JS 
 
-* The following validation was done with JS Hint.
+### Python
 
-* The following errors found were for missing semicolon that was an oversight that has now been corrected.
+* Only line too long warnings, future developments i will look for code which will decrease my line sizes to able a more PEP8 compliant system.
 
-![JS validation errors](asset/css/script/images/js-errors.png)
-<br>
-<br>
-<br>
-
-* Errors corrected
-
-![JS validation errors](asset/css/script/images/js-validation_no-error.png)
+![Python validation errors](static/images/python_linter.png)
 
 ### Lighthouse testing
 

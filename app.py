@@ -1,34 +1,42 @@
 import os
-import pandas as pd
-from bson import Int64 
-import plotly.express as px
+from bson import Int64
 from flask import jsonify, Flask, flash, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+import pandas as pd
+import plotly.express as px
+
 
 if os.path.exists("env.py"):
     import env
 
 app = Flask(__name__)
 app.static_folder = 'static'
+
 # Mongo DB config Vars
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
-#function for login page
+
+
+# Function for login page
 @app.route("/")
 def index():
+    """Function for the login page."""
     return redirect(url_for("login"))
-#function for home page
+
+
+# Function for home page
 @app.route("/get_stock")
 def get_stock():
     stock = mongo.db.stock.find()
     return render_template("stock.html", stock=stock)
 
-#search removed will be added in future updates, unable to work out how to have the search and edit work together.
+
+# Search removed will be added in future updates, unable to work out how to have the search and edit work together.
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "POST":
@@ -40,7 +48,8 @@ def search():
 
     return render_template("stock-list.html")
 
-#Register function
+
+# Register function
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -62,7 +71,9 @@ def register():
         return redirect(url_for("login"))
 
     return render_template("register.html")
-#login function
+
+
+# Login function
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -81,20 +92,27 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
-#stock overview function
+
+
+# Stock overview function
 @app.route("/stock-overview")
 def stock_overview():
     stock_data = mongo.db.stock.find()
     return render_template("stock-list.html", stock_data=stock_data)
-# check stock will be used on future updates
+
+
+# Check stock will be used in future updates
 @app.route("/stock_check/<stock_id>/edit", methods=["GET"])
 def stock_check_edit_page(stock_id):
     stock = mongo.db.stock.find_one({"_id": ObjectId(stock_id)})
     return render_template("stock_check_edit.html", stock=stock)
-# create line on Mongo DB with receipt stock
+
+
+# Create line on Mongo DB with receipt stock
 @app.route("/receipt", methods=["GET"])
 def receipt():
     return render_template("receipt.html")
+
 
 @app.route("/receipt_form", methods=["GET", "POST"])
 def receipt_form():
@@ -102,9 +120,8 @@ def receipt_form():
         try:
             stock_qty = int(request.form.get("stock_qty"))
         except ValueError:
-                
-                flash("Invalid quantity. Please enter a valid integer.")
-                return redirect(url_for("receipt_form"))
+            flash("Invalid quantity. Please enter a valid integer.")
+            return redirect(url_for("receipt_form"))
 
         receipt = {
             "stock_purchase_order": request.form.get("stock_purchase_order"),
@@ -121,10 +138,13 @@ def receipt_form():
         return redirect(url_for("receipt_form"))
 
     return render_template("receipt.html")
-# delete line off Mongo DB for issue stock
+
+
+# Delete line off Mongo DB for issue stock
 @app.route("/issue")
 def issue():
     return render_template("issue.html")
+
 
 @app.route("/issue_form", methods=["GET", "POST"])
 def issue_form():
@@ -139,20 +159,20 @@ def issue_form():
             "created_by": session["user"]
         }
 
-       
         filter_criteria = {
             "stock_purchase_order": issue["stock_purchase_order"],
             "stock_name": issue["stock_name"],  # Include other criteria as needed
         }
 
-       
         mongo.db.stock.delete_one(filter_criteria)
 
         flash("Stock Successfully Issued")
         return redirect(url_for("stock_overview"))
 
     return render_template("issue.html")
-# dashboard function
+
+
+# Dashboard function
 @app.route('/dashboard')
 def dashboard():
     stock_data = mongo.db.stock.find()
@@ -170,16 +190,20 @@ def dashboard():
     pie_chart_html = pie_fig.to_html(full_html=False)
 
     return render_template('dashboard.html', bar_chart_html=bar_chart_html, pie_chart_html=pie_chart_html)
-# stock check for future updates
+
+
+# Stock check for future updates
 @app.route("/stock_check", methods=["GET"])
 def stock_check():
     stocks = list(mongo.db.stock.find())
     return render_template("stock_check_view.html", stocks=stocks)
 
+
 @app.route("/stock_check/<stock_id>", methods=["GET"])
 def stock_check_detail(stock_id):
     stock = mongo.db.stock.find_one({"_id": ObjectId(stock_id)})
     return render_template("stock_check_edit.html", stock=stock)
+
 
 @app.route("/stock_check/<stock_id>/edit", methods=["POST"])
 def stock_check_edit(stock_id):
@@ -203,7 +227,8 @@ def stock_check_edit(stock_id):
         flash("Stock Successfully Updated")
         return redirect(url_for("stock_overview"))
 
-# stock count function
+
+# Stock count function
 @app.route("/stock_count", methods=["GET", "POST"])
 def stock_count():
     if request.method == "POST":
@@ -212,7 +237,7 @@ def stock_count():
         stock_number = request.form.get("stock_number")
         stock_uom = request.form.get("stock_uom")
         stock_location = request.form.get("stock_location")
-        
+
         # Convert stock_qty to an integer
         try:
             stock_qty = int(request.form.get("stock_qty"))
@@ -244,25 +269,23 @@ def stock_count():
 
     return render_template("stock_count.html")
 
-# low stock report function
+
+# Low stock report function
 def get_low_stock_items(threshold_quantity):
-   
     query = {"stock_qty": {"$lt": threshold_quantity}}
     low_stock_items_cursor = mongo.db.stock.find(query)
-    
-   
+
     low_stock_items = list(low_stock_items_cursor)
 
     print("Threshold Quantity:", threshold_quantity)
     print("MongoDB Query:", query)
     print("Low Stock Items Count:", len(low_stock_items))
-    print("Low Stock Items:", low_stock_items)  
+    print("Low Stock Items:", low_stock_items)
 
     return low_stock_items
 
 
 def generate_stock_report_html(low_stock_items):
-    
     html_content = """
     <html>
     <head>
@@ -281,7 +304,7 @@ def generate_stock_report_html(low_stock_items):
                 font-style: oblique;
                 text-decoration: underline;
                 color: white;
-                margin: 50px; 
+                margin: 50px;
             }
             th{
                 background-color: #ccc;
@@ -312,26 +335,26 @@ def generate_stock_report_html(low_stock_items):
     """
     return html_content
 
+
 @app.route("/low_stock")
 def low_stock_report():
-    # remember threshold quantity!
+    # Remember threshold quantity!
     threshold_quantity = 6
-
 
     low_stock_items = get_low_stock_items(threshold_quantity)
 
-    
     html_content = generate_stock_report_html(low_stock_items)
 
-   
     return render_template("low_stock.html", html_content=html_content)
-# logout function
+
+
+# Logout function
 @app.route("/logout")
 def logout():
     session.pop("user", None)
     flash("You have been logged out", "info")
     return redirect(url_for("login"))
 
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), port=int(os.environ.get("PORT")), debug=True)
-
