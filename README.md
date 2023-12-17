@@ -6,7 +6,44 @@
 
 ![Responsive Image](static/images/responsive.png)
 
+# Table of Contents
 
+1. [Safe Stock](#safe-stock)
+   - [Project Goals](#project-goals)
+   - [C.R.U.D](#crud)
+   - [User Experience (UX)](#user-experience)
+      - [User Stories](#user-stories)
+         - [First Time Visitor Goals](#first-time-visitor-goals)
+         - [Returning Visitor Goals](#returning-visitor-goals)
+         - [Frequent Visitors Goals](#frequent-visitors-goals)
+      - [Testing User Stories](#testing-user-stories)
+   - [Data Structure](#data-structure)
+   - [Process Map](#process-map)
+   - [Colour Scheme](#colour-scheme)
+   - [Imagery](#imagery)
+   - [Project Design Plan](#project-design-plan)
+      - [Login](#login)
+      - [Areas That Changed During Development](#areas-that-changed-during-development)
+   - [Features](#features)
+      - [Future Updates](#future-updates)
+   - [Technologies Used](#technologies-used)
+      - [Languages Used](#languages-used)
+      - [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
+   - [Testing](#testing)
+      - [HTML](#html)
+      - [CSS](#css)
+      - [JS](#js)
+      - [Lighthouse Testing](#lighthouse-testing)
+      - [User Stories Testing](#user-stories-testing)
+      - [User Feedback](#user-feedback)
+   - [Deployment](#deployment)
+      - [Mongo DB](#mongo-db)
+      - [Forking the GitHub Repository](#forking-the-github-repository)
+      - [Deploying to Heroku](#deploying-to-heroku)
+      - [Making a Local Clone](#making-a-local-clone)
+   - [Credits](#credits)
+      - [Content](#content)
+      - [Acknowledgments](#acknowledgements)
 
 
 # Project Goals
@@ -549,14 +586,19 @@ https://github.com/Nick8735/Safe_Stock/assets/110351696/73543ec9-4570-4849-91f2-
 
 https://github.com/Nick8735/Safe_Stock/assets/110351696/baba31f6-3a03-4cc9-9355-7f4a4bbe90a3
 
+## Bugs During Development
+
+1. Unable to determine why the low stock report was not working, added print queries to validate that data was being pulled from Mongo DB. Data showed correctly in terminal but did not show on the report. On review of the documents in Mongo DB I could see that the default ID for Qty was set as string instead of INT32. After change in Mongo low stock report worked as expected.
+
+<img src="static/images/bug_1.png" alt="page-6" style="width:450px;"/>
 
 ## User Feedback
 
 * Website was accessed by multiple family and friends who gave the following feedback for bugs and suggestions.
 
-1. Chris - The Software is very simple and logical which would make it easier for people to use, I would like to see less typing in details and more populated fields on future updates, this will help decrease errors and make the system even easier to use. 
+* Chris - The Software is very simple and logical which would make it easier for people to use, I would like to see less typing in details and more populated fields on future updates, this will help decrease errors and make the system even easier to use. 
 
-2. Simon - I could see small businesses using this software to account for small store stock levels and help increase stock traceability and usage. I would love to see further development and watch this piece of software grow with further updates. I like the messages that appear after a successful transaction, it is good to not have to always keep pressing ok when one pops up like you do on a lot of systems. 
+* Simon - I could see small businesses using this software to account for small store stock levels and help increase stock traceability and usage. I would love to see further development and watch this piece of software grow with further updates. I like the messages that appear after a successful transaction, it is good to not have to always keep pressing ok when one pops up like you do on a lot of systems. 
 
 # Deployment
 

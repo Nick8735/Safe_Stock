@@ -12,22 +12,23 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 app.static_folder = 'static'
-
+# Mongo DB config Vars
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
-
+#function for login page
 @app.route("/")
 def index():
     return redirect(url_for("login"))
-
+#function for home page
 @app.route("/get_stock")
 def get_stock():
     stock = mongo.db.stock.find()
     return render_template("stock.html", stock=stock)
 
+#search removed will be added in future updates, unable to work out how to have the search and edit work together.
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "POST":
@@ -39,7 +40,7 @@ def search():
 
     return render_template("stock-list.html")
 
-
+#Register function
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -61,7 +62,7 @@ def register():
         return redirect(url_for("login"))
 
     return render_template("register.html")
-
+#login function
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -80,17 +81,17 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
-
+#stock overview function
 @app.route("/stock-overview")
 def stock_overview():
     stock_data = mongo.db.stock.find()
     return render_template("stock-list.html", stock_data=stock_data)
-
+# check stock will be used on future updates
 @app.route("/stock_check/<stock_id>/edit", methods=["GET"])
 def stock_check_edit_page(stock_id):
     stock = mongo.db.stock.find_one({"_id": ObjectId(stock_id)})
     return render_template("stock_check_edit.html", stock=stock)
-
+# create line on Mongo DB with receipt stock
 @app.route("/receipt", methods=["GET"])
 def receipt():
     return render_template("receipt.html")
@@ -120,7 +121,7 @@ def receipt_form():
         return redirect(url_for("receipt_form"))
 
     return render_template("receipt.html")
-
+# delete line off Mongo DB for issue stock
 @app.route("/issue")
 def issue():
     return render_template("issue.html")
@@ -138,20 +139,20 @@ def issue_form():
             "created_by": session["user"]
         }
 
-        # Construct a filter based on purchase order (adjust criteria as needed)
+       
         filter_criteria = {
             "stock_purchase_order": issue["stock_purchase_order"],
             "stock_name": issue["stock_name"],  # Include other criteria as needed
         }
 
-        # Delete the document that matches the filter
+       
         mongo.db.stock.delete_one(filter_criteria)
 
         flash("Stock Successfully Issued")
         return redirect(url_for("stock_overview"))
 
     return render_template("issue.html")
-
+# dashboard function
 @app.route('/dashboard')
 def dashboard():
     stock_data = mongo.db.stock.find()
@@ -169,7 +170,7 @@ def dashboard():
     pie_chart_html = pie_fig.to_html(full_html=False)
 
     return render_template('dashboard.html', bar_chart_html=bar_chart_html, pie_chart_html=pie_chart_html)
-
+# stock check for future updates
 @app.route("/stock_check", methods=["GET"])
 def stock_check():
     stocks = list(mongo.db.stock.find())
@@ -202,7 +203,7 @@ def stock_check_edit(stock_id):
         flash("Stock Successfully Updated")
         return redirect(url_for("stock_overview"))
 
-
+# stock count function
 @app.route("/stock_count", methods=["GET", "POST"])
 def stock_count():
     if request.method == "POST":
@@ -243,25 +244,25 @@ def stock_count():
 
     return render_template("stock_count.html")
 
-
+# low stock report function
 def get_low_stock_items(threshold_quantity):
-    # MongoDB Query: Retrieve items with quantity less than the threshold
+   
     query = {"stock_qty": {"$lt": threshold_quantity}}
     low_stock_items_cursor = mongo.db.stock.find(query)
     
-    # Convert the cursor to a list of dictionaries
+   
     low_stock_items = list(low_stock_items_cursor)
 
     print("Threshold Quantity:", threshold_quantity)
     print("MongoDB Query:", query)
     print("Low Stock Items Count:", len(low_stock_items))
-    print("Low Stock Items:", low_stock_items)  # Add this line for debugging
+    print("Low Stock Items:", low_stock_items)  
 
     return low_stock_items
 
 
 def generate_stock_report_html(low_stock_items):
-    # Your HTML content generation logic
+    
     html_content = """
     <html>
     <head>
@@ -313,18 +314,18 @@ def generate_stock_report_html(low_stock_items):
 
 @app.route("/low_stock")
 def low_stock_report():
-    # Set your threshold quantity
+    # remember threshold quantity!
     threshold_quantity = 6
 
-    # Get low-stock items from MongoDB
+
     low_stock_items = get_low_stock_items(threshold_quantity)
 
-    # Generate the HTML report
+    
     html_content = generate_stock_report_html(low_stock_items)
 
-    # Render the low_stock.html template and pass the HTML content
+   
     return render_template("low_stock.html", html_content=html_content)
-
+# logout function
 @app.route("/logout")
 def logout():
     session.pop("user", None)
